@@ -1,4 +1,4 @@
-var map, streetview, overlay, pano;
+var map, streetview, overlay, pano, globalpano;
 
 function initialize() {
     streetView = new google.maps.StreetViewPanorama(
@@ -7,54 +7,7 @@ function initialize() {
             visible: true,
             panoProvider: getCustomPanorama
         });
-    mapStyle = [{
-            "featureType": "administrative",
-            "elementType": "geometry",
-            "stylers": [{
-                "visibility": "off"
-            }]
-        },
-        {
-            "featureType": "administrative.land_parcel",
-            "elementType": "labels",
-            "stylers": [{
-                "visibility": "off"
-            }]
-        },
-        {
-            "featureType": "poi",
-            "stylers": [{
-                "visibility": "off"
-            }]
-        },
-        {
-            "featureType": "poi",
-            "elementType": "labels.text",
-            "stylers": [{
-                "visibility": "off"
-            }]
-        },
-        {
-            "featureType": "road",
-            "elementType": "labels.icon",
-            "stylers": [{
-                "visibility": "off"
-            }]
-        },
-        {
-            "featureType": "road.local",
-            "elementType": "labels",
-            "stylers": [{
-                "visibility": "off"
-            }]
-        },
-        {
-            "featureType": "transit",
-            "stylers": [{
-                "visibility": "off"
-            }]
-        }
-    ];
+
     map = new google.maps.Map(
         document.getElementById('map'), {
             center: pano00001.location.latLng,
@@ -69,10 +22,13 @@ function initialize() {
             lat: streetView.position.lat(),
             lng: streetView.position.lng()
         });
-        //  globalpano = streetView.pano.title();
-        //  localStorage.setItem("globalpano", buurpano);
-        //  console.log('globalpano');
+
+        localStorage.clear(); // remove previously stored pano
+        globalpano = streetView.getPano(); // get current pano
+        localStorage.setItem("globalpano", globalpano); // write current pano to ls
+        console.log(localStorage.globalpano);
     });
+
     createMarker(pano00001.location.latLng, map, pano00001.location.pano);
     createMarker(pano00002.location.latLng, map, pano00002.location.pano);
     createMarker(pano00003.location.latLng, map, pano00003.location.pano);
@@ -215,6 +171,7 @@ function initialize() {
 }
 
 function createMarker(pos, map, title) {
+
     var marker = new google.maps.Marker({
         position: pos,
         map: map,
