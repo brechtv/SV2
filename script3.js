@@ -1,154 +1,158 @@
 var map, streetview, overlay;
-		function initialize() {
-		streetView = new google.maps.StreetViewPanorama(
-			document.getElementById('canvas'), {
-			pano: 'pano02000',
-				  visible : true,
-							panoProvider : getCustomPanorama
-			});
-		mapStyle = [{
-			"featureType": "administrative",
-				"elementType" : "geometry",
-				"stylers" : [{
-				"visibility": "off"
-			}]
-		},
-		{
-			"featureType": "administrative.land_parcel",
-			"elementType" : "labels",
-			"stylers" : [{
-					"visibility": "off"
-				}]
-		},
-		{
-			"featureType": "poi",
-			"stylers" : [{
-						"visibility": "off"
-					}]
-		},
-		{
-			"featureType": "poi",
-			"elementType" : "labels.text",
-			"stylers" : [{
-							"visibility": "off"
-						}]
-		},
-		{
-			"featureType": "road",
-			"elementType" : "labels.icon",
-			"stylers" : [{
-								"visibility": "off"
-							}]
-		},
-		{
-			"featureType": "road.local",
-			"elementType" : "labels",
-			"stylers" : [{
-									"visibility": "off"
-								}]
-		},
-		{
-			"featureType": "transit",
-			"stylers" : [{
-										"visibility": "off"
-									}]
-		}
-		];
-		map = new google.maps.Map(
-			document.getElementById('map'), {
-			center: pano02000.location.latLng,
-					zoom : 19,
-						   streetView : streetView,
-										streetViewControl : true, 
-															styles : mapStyle
-			});
-		        createMarker(pano02000.location.latLng, map, pano02000.location.pano);
-        createMarker(pano02001.location.latLng, map, pano02001.location.pano);
-        createMarker(pano02002.location.latLng, map, pano02002.location.pano);
-        createMarker(pano02003.location.latLng, map, pano02003.location.pano);
-        createMarker(pano02004.location.latLng, map, pano02004.location.pano);
-        createMarker(pano02005.location.latLng, map, pano02005.location.pano);
-        createMarker(pano02006.location.latLng, map, pano02006.location.pano);
-        createMarker(pano02007.location.latLng, map, pano02007.location.pano);
-        createMarker(pano02008.location.latLng, map, pano02008.location.pano);
-        createMarker(pano02009.location.latLng, map, pano02009.location.pano);
-        createMarker(pano02010.location.latLng, map, pano02010.location.pano);
-        createMarker(pano02011.location.latLng, map, pano02011.location.pano);
-        createMarker(pano02012.location.latLng, map, pano02012.location.pano);
-        createMarker(pano02013.location.latLng, map, pano02013.location.pano);
-        createMarker(pano02014.location.latLng, map, pano02014.location.pano);
-        createMarker(pano05000.location.latLng, map, pano05000.location.pano);
-        createMarker(pano07000.location.latLng, map, pano07000.location.pano);
-        createMarker(pano07001.location.latLng, map, pano07001.location.pano);
-        createMarker(pano07002.location.latLng, map, pano07002.location.pano);
-        createMarker(pano07003.location.latLng, map, pano07003.location.pano);
-        createMarker(pano07004.location.latLng, map, pano07004.location.pano);
-        createMarker(pano07005.location.latLng, map, pano07005.location.pano);
-        createMarker(pano11000.location.latLng, map, pano11000.location.pano);
-        createMarker(pano11001.location.latLng, map, pano11001.location.pano);
-        createMarker(pano11002.location.latLng, map, pano11002.location.pano);
-        createMarker(pano11003.location.latLng, map, pano11003.location.pano);
-        createMarker(pano11004.location.latLng, map, pano11004.location.pano);
-        createMarker(pano11005.location.latLng, map, pano11005.location.pano);
-        createMarker(pano11006.location.latLng, map, pano11006.location.pano);
-        createMarker(pano11007.location.latLng, map, pano11007.location.pano);
-        createMarker(pano11008.location.latLng, map, pano11008.location.pano);
-        createMarker(pano11009.location.latLng, map, pano11009.location.pano);
-        createMarker(pano11010.location.latLng, map, pano11010.location.pano);
-        createMarker(pano11011.location.latLng, map, pano11011.location.pano);
-        createMarker(pano11012.location.latLng, map, pano11012.location.pano);
-        createMarker(pano11013.location.latLng, map, pano11013.location.pano);
-        createMarker(pano11014.location.latLng, map, pano11014.location.pano);
-        createMarker(pano11015.location.latLng, map, pano11015.location.pano);
-        createMarker(pano11016.location.latLng, map, pano11016.location.pano);
-        createMarker(pano11017.location.latLng, map, pano11017.location.pano);
-        createMarker(pano11018.location.latLng, map, pano11018.location.pano);
-        createMarker(pano11019.location.latLng, map, pano11019.location.pano);
-        createMarker(pano11020.location.latLng, map, pano11020.location.pano);
-        createMarker(pano11021.location.latLng, map, pano11021.location.pano);
-        createMarker(pano11022.location.latLng, map, pano11022.location.pano);
-        createMarker(pano12000.location.latLng, map, pano12000.location.pano);
-        createMarker(pano12001.location.latLng, map, pano12001.location.pano);
-        createMarker(pano12002.location.latLng, map, pano12002.location.pano);
-        createMarker(pano12003.location.latLng, map, pano12003.location.pano);
-        createMarker(pano12004.location.latLng, map, pano12004.location.pano);
-        createMarker(pano12005.location.latLng, map, pano12005.location.pano);
-        createMarker(pano12006.location.latLng, map, pano12006.location.pano);
-        createMarker(pano12007.location.latLng, map, pano12007.location.pano);
-        createMarker(pano12008.location.latLng, map, pano12008.location.pano);
-        createMarker(pano12009.location.latLng, map, pano12009.location.pano);
-        createMarker(pano12010.location.latLng, map, pano12010.location.pano);
-        createMarker(pano12011.location.latLng, map, pano12011.location.pano);
-        createMarker(pano12012.location.latLng, map, pano12012.location.pano);
-        createMarker(pano12013.location.latLng, map, pano12013.location.pano);
-        createMarker(pano12014.location.latLng, map, pano12014.location.pano);
-        createMarker(pano12015.location.latLng, map, pano12015.location.pano);
-var ctaLayer = new google.maps.KmlLayer({ 
-			url: 'https://storage.googleapis.com/brechtv/SV%202/files/verdieping2.kml',
-			map : map,
-			preserveViewport : true
-	}); 
+
+function initialize() {
+    streetView = new google.maps.StreetViewPanorama(
+        document.getElementById('canvas'), {
+            pano: 'pano02000',
+            visible: true,
+            panoProvider: getCustomPanorama
+        });
+    mapStyle = [{
+            "featureType": "administrative",
+            "elementType": "geometry",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        },
+        {
+            "featureType": "administrative.land_parcel",
+            "elementType": "labels",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        },
+        {
+            "featureType": "poi",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        },
+        {
+            "featureType": "poi",
+            "elementType": "labels.text",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        },
+        {
+            "featureType": "road",
+            "elementType": "labels.icon",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        },
+        {
+            "featureType": "road.local",
+            "elementType": "labels",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        },
+        {
+            "featureType": "transit",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        }
+    ];
+    map = new google.maps.Map(
+        document.getElementById('map'), {
+            center: pano02000.location.latLng,
+            zoom: 19,
+            streetView: streetView,
+            streetViewControl: true,
+            styles: mapStyle
+        });
+    createMarker(pano02000.location.latLng, map, pano02000.location.pano);
+    createMarker(pano02001.location.latLng, map, pano02001.location.pano);
+    createMarker(pano02002.location.latLng, map, pano02002.location.pano);
+    createMarker(pano02003.location.latLng, map, pano02003.location.pano);
+    createMarker(pano02004.location.latLng, map, pano02004.location.pano);
+    createMarker(pano02005.location.latLng, map, pano02005.location.pano);
+    createMarker(pano02006.location.latLng, map, pano02006.location.pano);
+    createMarker(pano02007.location.latLng, map, pano02007.location.pano);
+    createMarker(pano02008.location.latLng, map, pano02008.location.pano);
+    createMarker(pano02009.location.latLng, map, pano02009.location.pano);
+    createMarker(pano02010.location.latLng, map, pano02010.location.pano);
+    createMarker(pano02011.location.latLng, map, pano02011.location.pano);
+    createMarker(pano02012.location.latLng, map, pano02012.location.pano);
+    createMarker(pano02013.location.latLng, map, pano02013.location.pano);
+    createMarker(pano02014.location.latLng, map, pano02014.location.pano);
+    createMarker(pano05000.location.latLng, map, pano05000.location.pano);
+    createMarker(pano07000.location.latLng, map, pano07000.location.pano);
+    createMarker(pano07001.location.latLng, map, pano07001.location.pano);
+    createMarker(pano07002.location.latLng, map, pano07002.location.pano);
+    createMarker(pano07003.location.latLng, map, pano07003.location.pano);
+    createMarker(pano07004.location.latLng, map, pano07004.location.pano);
+    createMarker(pano07005.location.latLng, map, pano07005.location.pano);
+    createMarker(pano11000.location.latLng, map, pano11000.location.pano);
+    createMarker(pano11001.location.latLng, map, pano11001.location.pano);
+    createMarker(pano11002.location.latLng, map, pano11002.location.pano);
+    createMarker(pano11003.location.latLng, map, pano11003.location.pano);
+    createMarker(pano11004.location.latLng, map, pano11004.location.pano);
+    createMarker(pano11005.location.latLng, map, pano11005.location.pano);
+    createMarker(pano11006.location.latLng, map, pano11006.location.pano);
+    createMarker(pano11007.location.latLng, map, pano11007.location.pano);
+    createMarker(pano11008.location.latLng, map, pano11008.location.pano);
+    createMarker(pano11009.location.latLng, map, pano11009.location.pano);
+    createMarker(pano11010.location.latLng, map, pano11010.location.pano);
+    createMarker(pano11011.location.latLng, map, pano11011.location.pano);
+    createMarker(pano11012.location.latLng, map, pano11012.location.pano);
+    createMarker(pano11013.location.latLng, map, pano11013.location.pano);
+    createMarker(pano11014.location.latLng, map, pano11014.location.pano);
+    createMarker(pano11015.location.latLng, map, pano11015.location.pano);
+    createMarker(pano11016.location.latLng, map, pano11016.location.pano);
+    createMarker(pano11017.location.latLng, map, pano11017.location.pano);
+    createMarker(pano11018.location.latLng, map, pano11018.location.pano);
+    createMarker(pano11019.location.latLng, map, pano11019.location.pano);
+    createMarker(pano11020.location.latLng, map, pano11020.location.pano);
+    createMarker(pano11021.location.latLng, map, pano11021.location.pano);
+    createMarker(pano11022.location.latLng, map, pano11022.location.pano);
+    createMarker(pano12000.location.latLng, map, pano12000.location.pano);
+    createMarker(pano12001.location.latLng, map, pano12001.location.pano);
+    createMarker(pano12002.location.latLng, map, pano12002.location.pano);
+    createMarker(pano12003.location.latLng, map, pano12003.location.pano);
+    createMarker(pano12004.location.latLng, map, pano12004.location.pano);
+    createMarker(pano12005.location.latLng, map, pano12005.location.pano);
+    createMarker(pano12006.location.latLng, map, pano12006.location.pano);
+    createMarker(pano12007.location.latLng, map, pano12007.location.pano);
+    createMarker(pano12008.location.latLng, map, pano12008.location.pano);
+    createMarker(pano12009.location.latLng, map, pano12009.location.pano);
+    createMarker(pano12010.location.latLng, map, pano12010.location.pano);
+    createMarker(pano12011.location.latLng, map, pano12011.location.pano);
+    createMarker(pano12012.location.latLng, map, pano12012.location.pano);
+    createMarker(pano12013.location.latLng, map, pano12013.location.pano);
+    createMarker(pano12014.location.latLng, map, pano12014.location.pano);
+    createMarker(pano12015.location.latLng, map, pano12015.location.pano);
+    var ctaLayer = new google.maps.KmlLayer({
+        url: 'https://storage.googleapis.com/brechtv/SV%202/files/verdieping2.kml',
+        map: map,
+        preserveViewport: true
+    });
 }
-     function createMarker(pos, map, title) {
-			var marker = new google.maps.Marker({ 
-				position: pos,
-				map : map,
-				title : title,
-				icon : {
-				path: google.maps.SymbolPath.CIRCLE,
-				strokeColor : "#6D7BE3",
-				scale : 5
-		}
-		}); 
-			marker.addListener("click", function() {
-				map.setCenter(marker.getPosition()); 
-				streetView.setPano(title); 
-	}); 
-	}
-	function getCustomPanoramaTileUrl(pano, zoom, tileX, tileY) {
-				return "https://storage.googleapis.com/brechtv/SV%202/images/2e%20verdieping/" + pano + '.JPG';
-		}
-function getCustomPanorama(pano, zoom, tileX, tileY){
+
+function createMarker(pos, map, title) {
+    var marker = new google.maps.Marker({
+        position: pos,
+        map: map,
+        title: title,
+        icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            strokeColor: "#6D7BE3",
+            scale: 5
+        }
+    });
+    marker.addListener("click", function() {
+        map.setCenter(marker.getPosition());
+        streetView.setPano(title);
+    });
+}
+
+function getCustomPanoramaTileUrl(pano, zoom, tileX, tileY) {
+    return "https://storage.googleapis.com/brechtv/SV%202/images/2e%20verdieping/" + pano + '.JPG';
+}
+
+function getCustomPanorama(pano, zoom, tileX, tileY) {
     switch (pano) {
         case 'pano02000':
             return pano02000;
@@ -341,7 +345,7 @@ var pano02000 = {
     location: {
         pano: 'pano02000',
         description: 'Traphal B200',
-        latLng: new google.maps.LatLng(51.0608323,3.70788232)
+        latLng: new google.maps.LatLng(51.0608323, 3.70788232)
     },
     links: [{
         description: "Naar gang B201",
@@ -360,17 +364,17 @@ var pano02001 = {
     location: {
         pano: 'pano02001',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.0608058,3.70790963)
+        latLng: new google.maps.LatLng(51.0608058, 3.70790963)
     },
     links: [{
         description: "Naar traphal B200",
         pano: "pano02000",
         heading: 327
-    },{
+    }, {
         description: "Naar gang B201",
         pano: "pano02002",
         heading: 47
-    },{
+    }, {
         description: "Naar gang B201",
         pano: "pano02004",
         heading: 227
@@ -387,13 +391,13 @@ var pano02002 = {
     location: {
         pano: 'pano02002',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06082126,3.70793663)
+        latLng: new google.maps.LatLng(51.06082126, 3.70793663)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02001",
         heading: 227
-    },{
+    }, {
         description: "Naar gang B201",
         pano: "pano02003",
         heading: 137
@@ -410,7 +414,7 @@ var pano02003 = {
     location: {
         pano: 'pano02003',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06080183,3.70796534)
+        latLng: new google.maps.LatLng(51.06080183, 3.70796534)
     },
     links: [{
         description: "Naar gang B201",
@@ -429,13 +433,13 @@ var pano02004 = {
     location: {
         pano: 'pano02004',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06076328,3.70783536)
+        latLng: new google.maps.LatLng(51.06076328, 3.70783536)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02001",
         heading: 47
-    },{
+    }, {
         description: "Naar gang B201",
         pano: "pano02005",
         heading: 317
@@ -452,13 +456,13 @@ var pano02005 = {
     location: {
         pano: 'pano02005',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06081394,3.70776231)
+        latLng: new google.maps.LatLng(51.06081394, 3.70776231)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02004",
         heading: 137
-    },{
+    }, {
         description: "Naar gang B201",
         pano: "pano02006",
         heading: 227
@@ -475,13 +479,13 @@ var pano02006 = {
     location: {
         pano: 'pano02006',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06076866,3.70768324)
+        latLng: new google.maps.LatLng(51.06076866, 3.70768324)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02005",
         heading: 47
-    },{
+    }, {
         description: "Naar gang B201",
         pano: "pano02007",
         heading: 227
@@ -498,13 +502,13 @@ var pano02007 = {
     location: {
         pano: 'pano02007',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06071833,3.70759535)
+        latLng: new google.maps.LatLng(51.06071833, 3.70759535)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02006",
         heading: 47
-    },{
+    }, {
         description: "Naar gang B201",
         pano: "pano02008",
         heading: 227
@@ -521,13 +525,13 @@ var pano02008 = {
     location: {
         pano: 'pano02008',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06067947,3.70752748)
+        latLng: new google.maps.LatLng(51.06067947, 3.70752748)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02007",
         heading: 47
-    },{
+    }, {
         description: "Naar gang B201",
         pano: "pano02009",
         heading: 227
@@ -544,13 +548,13 @@ var pano02009 = {
     location: {
         pano: 'pano02009',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06062593,3.70743399)
+        latLng: new google.maps.LatLng(51.06062593, 3.70743399)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02008",
         heading: 47
-    },{
+    }, {
         description: "Naar gang B201",
         pano: "pano02010",
         heading: 227
@@ -567,13 +571,13 @@ var pano02010 = {
     location: {
         pano: 'pano02010',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06057884,3.70735176)
+        latLng: new google.maps.LatLng(51.06057884, 3.70735176)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02009",
         heading: 47
-    },{
+    }, {
         description: "Naar gang B201",
         pano: "pano02011",
         heading: 227
@@ -590,17 +594,17 @@ var pano02011 = {
     location: {
         pano: 'pano02011',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06050654,3.7072255)
+        latLng: new google.maps.LatLng(51.06050654, 3.7072255)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02010",
         heading: 47
-    },{
+    }, {
         description: "Naar gang B201",
         pano: "pano02012",
         heading: 139
-    },{
+    }, {
         description: "Naar gang B201",
         pano: "pano02013",
         heading: 320
@@ -617,7 +621,7 @@ var pano02012 = {
     location: {
         pano: 'pano02012',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.0604383,3.7073173)
+        latLng: new google.maps.LatLng(51.0604383, 3.7073173)
     },
     links: [{
         description: "Naar gang B201",
@@ -636,13 +640,13 @@ var pano02013 = {
     location: {
         pano: 'pano02013',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06055166,3.70716656)
+        latLng: new google.maps.LatLng(51.06055166, 3.70716656)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02011",
         heading: 140
-    },{
+    }, {
         description: "Naar noodtrap B239",
         pano: "pano02014",
         heading: 237
@@ -659,7 +663,7 @@ var pano02014 = {
     location: {
         pano: 'pano02014',
         description: 'Noodtrap B239',
-        latLng: new google.maps.LatLng(51.06053145,3.70711629)
+        latLng: new google.maps.LatLng(51.06053145, 3.70711629)
     },
     links: [{
         description: "Naar gang B201",
@@ -678,7 +682,7 @@ var pano05000 = {
     location: {
         pano: 'pano05000',
         description: 'Traphal E222',
-        latLng: new google.maps.LatLng(51.0599667,3.70936559)
+        latLng: new google.maps.LatLng(51.0599667, 3.70936559)
     },
     links: [{
         description: "FOUT",
@@ -697,7 +701,7 @@ var pano07000 = {
     location: {
         pano: 'pano07000',
         description: 'Traphal G210',
-        latLng: new google.maps.LatLng(51.05924978,3.70805315)
+        latLng: new google.maps.LatLng(51.05924978, 3.70805315)
     },
     links: [{
         description: "Naar traphal G210",
@@ -716,13 +720,13 @@ var pano07001 = {
     location: {
         pano: 'pano07001',
         description: 'Traphal G210',
-        latLng: new google.maps.LatLng(51.05925642,3.70799902)
+        latLng: new google.maps.LatLng(51.05925642, 3.70799902)
     },
     links: [{
         description: "Naar traphal G210",
         pano: "pano07000",
         heading: 101
-    },{
+    }, {
         description: "Naar gang G204",
         pano: "pano07002",
         heading: 299
@@ -739,13 +743,13 @@ var pano07002 = {
     location: {
         pano: 'pano07002',
         description: 'Gang G204',
-        latLng: new google.maps.LatLng(51.05927358,3.70794986)
+        latLng: new google.maps.LatLng(51.05927358, 3.70794986)
     },
     links: [{
         description: "Naar traphal G210",
         pano: "pano07001",
         heading: 119
-    },{
+    }, {
         description: "Naar gang G204",
         pano: "pano07003",
         heading: 28
@@ -762,13 +766,13 @@ var pano07003 = {
     location: {
         pano: 'pano07003',
         description: 'Gang G204',
-        latLng: new google.maps.LatLng(51.05931264,3.70798419)
+        latLng: new google.maps.LatLng(51.05931264, 3.70798419)
     },
     links: [{
         description: "Naar gang G204",
         pano: "pano07002",
         heading: 208
-    },{
+    }, {
         description: "Naar gang G204",
         pano: "pano07004",
         heading: 28
@@ -785,13 +789,13 @@ var pano07004 = {
     location: {
         pano: 'pano07004',
         description: 'Gang G204',
-        latLng: new google.maps.LatLng(51.05935686,3.70802318)
+        latLng: new google.maps.LatLng(51.05935686, 3.70802318)
     },
     links: [{
         description: "Naar gang G204",
         pano: "pano07003",
         heading: 208
-    },{
+    }, {
         description: "Naar gang G204",
         pano: "pano07005",
         heading: 50
@@ -808,7 +812,7 @@ var pano07005 = {
     location: {
         pano: 'pano07005',
         description: 'Gang G204',
-        latLng: new google.maps.LatLng(51.05937402,3.70805635)
+        latLng: new google.maps.LatLng(51.05937402, 3.70805635)
     },
     links: [{
         description: "Naar gang G204",
@@ -827,7 +831,7 @@ var pano11000 = {
     location: {
         pano: 'pano11000',
         description: 'Traphal L202',
-        latLng: new google.maps.LatLng(51.05977339,3.71021651)
+        latLng: new google.maps.LatLng(51.05977339, 3.71021651)
     },
     links: [{
         description: "Naar gang L201",
@@ -846,17 +850,17 @@ var pano11001 = {
     location: {
         pano: 'pano11001',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.05975624,3.7102414)
+        latLng: new google.maps.LatLng(51.05975624, 3.7102414)
     },
     links: [{
         description: "Naar traphal L202",
         pano: "pano11000",
         heading: 317
-    },{
+    }, {
         description: "Naar gang L201",
         pano: "pano11002",
         heading: 47
-    },{
+    }, {
         description: "Naar gang L209",
         pano: "pano11012",
         heading: 227
@@ -873,17 +877,17 @@ var pano11002 = {
     location: {
         pano: 'pano11002',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.05977033,3.71026585)
+        latLng: new google.maps.LatLng(51.05977033, 3.71026585)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11001",
         heading: 227
-    },{
+    }, {
         description: "Naar gang L201",
         pano: "pano11003",
         heading: 47
-    },{
+    }, {
         description: "Naar gang L201",
         pano: "pano11011",
         heading: 319
@@ -900,13 +904,13 @@ var pano11003 = {
     location: {
         pano: 'pano11003',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.0597959,3.71031023)
+        latLng: new google.maps.LatLng(51.0597959, 3.71031023)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11002",
         heading: 227
-    },{
+    }, {
         description: "Naar gang L201",
         pano: "pano11004",
         heading: 47
@@ -923,13 +927,13 @@ var pano11004 = {
     location: {
         pano: 'pano11004',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.0598303,3.71036994)
+        latLng: new google.maps.LatLng(51.0598303, 3.71036994)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11003",
         heading: 227
-    },{
+    }, {
         description: "Naar gang L201",
         pano: "pano11005",
         heading: 317
@@ -946,13 +950,13 @@ var pano11005 = {
     location: {
         pano: 'pano11005',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.05985651,3.71033192)
+        latLng: new google.maps.LatLng(51.05985651, 3.71033192)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11004",
         heading: 137
-    },{
+    }, {
         description: "Naar gang L201",
         pano: "pano11006",
         heading: 317
@@ -969,17 +973,17 @@ var pano11006 = {
     location: {
         pano: 'pano11006',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.05987622,3.71030332)
+        latLng: new google.maps.LatLng(51.05987622, 3.71030332)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11005",
         heading: 137
-    },{
+    }, {
         description: "Naar gang L201",
         pano: "pano11007",
         heading: 317
-    },{
+    }, {
         description: "Naar gang L201",
         pano: "pano11010",
         heading: 229
@@ -996,17 +1000,17 @@ var pano11007 = {
     location: {
         pano: 'pano11007',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.0599073,3.71025823)
+        latLng: new google.maps.LatLng(51.0599073, 3.71025823)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11006",
         heading: 137
-    },{
+    }, {
         description: "Naar gang L201",
         pano: "pano11008",
         heading: 317
-    },{
+    }, {
         description: "Naar terras",
         pano: "pano11009",
         heading: 234
@@ -1023,13 +1027,13 @@ var pano11008 = {
     location: {
         pano: 'pano11008',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.05993598,3.71021662)
+        latLng: new google.maps.LatLng(51.05993598, 3.71021662)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11007",
         heading: 137
-    },{
+    }, {
         description: "Naar gang L201",
         pano: "pano12014",
         heading: 317
@@ -1046,7 +1050,7 @@ var pano11009 = {
     location: {
         pano: 'pano11009',
         description: 'Terras',
-        latLng: new google.maps.LatLng(51.05988283,3.710203)
+        latLng: new google.maps.LatLng(51.05988283, 3.710203)
     },
     links: [{
         description: "Naar gang L201",
@@ -1065,13 +1069,13 @@ var pano11010 = {
     location: {
         pano: 'pano11010',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.05984908,3.71025197)
+        latLng: new google.maps.LatLng(51.05984908, 3.71025197)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11006",
         heading: 49
-    },{
+    }, {
         description: "Naar gang L201",
         pano: "pano11011",
         heading: 222
@@ -1088,13 +1092,13 @@ var pano11011 = {
     location: {
         pano: 'pano11011',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.05981552,3.71020372)
+        latLng: new google.maps.LatLng(51.05981552, 3.71020372)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11010",
         heading: 42
-    },{
+    }, {
         description: "Naar gang L201",
         pano: "pano11002",
         heading: 139
@@ -1111,21 +1115,21 @@ var pano11012 = {
     location: {
         pano: 'pano11012',
         description: 'Gang L209',
-        latLng: new google.maps.LatLng(51.0597118,3.71016428)
+        latLng: new google.maps.LatLng(51.0597118, 3.71016428)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11001",
         heading: 47
-    },{
+    }, {
         description: "Naar lokaal L226",
         pano: "pano11013",
         heading: 137
-    },{
+    }, {
         description: "Naar gang L210",
         pano: "pano11017",
         heading: 227
-    },{
+    }, {
         description: "Naar gang L209",
         pano: "pano11016",
         heading: 317
@@ -1142,17 +1146,17 @@ var pano11013 = {
     location: {
         pano: 'pano11013',
         description: 'Lokaal L226',
-        latLng: new google.maps.LatLng(51.05968368,3.71020509)
+        latLng: new google.maps.LatLng(51.05968368, 3.71020509)
     },
     links: [{
         description: "Naar gang L209",
         pano: "pano11012",
         heading: 317
-    },{
+    }, {
         description: "Naar lokaal L226",
         pano: "pano11014",
         heading: 233
-    },{
+    }, {
         description: "Naar lokaal L226",
         pano: "pano11015",
         heading: 64
@@ -1169,7 +1173,7 @@ var pano11014 = {
     location: {
         pano: 'pano11014',
         description: 'Lokaal L226',
-        latLng: new google.maps.LatLng(51.05964823,3.71012787)
+        latLng: new google.maps.LatLng(51.05964823, 3.71012787)
     },
     links: [{
         description: "Naar lokaal L226",
@@ -1188,7 +1192,7 @@ var pano11015 = {
     location: {
         pano: 'pano11015',
         description: 'Lokaal L226',
-        latLng: new google.maps.LatLng(51.05971756,3.71032011)
+        latLng: new google.maps.LatLng(51.05971756, 3.71032011)
     },
     links: [{
         description: "Naar lokaal L226",
@@ -1207,7 +1211,7 @@ var pano11016 = {
     location: {
         pano: 'pano11016',
         description: 'Gang L209',
-        latLng: new google.maps.LatLng(51.05975639,3.71009959)
+        latLng: new google.maps.LatLng(51.05975639, 3.71009959)
     },
     links: [{
         description: "Naar gang L209",
@@ -1226,13 +1230,13 @@ var pano11017 = {
     location: {
         pano: 'pano11017',
         description: 'Gang L210',
-        latLng: new google.maps.LatLng(51.0596814,3.71011151)
+        latLng: new google.maps.LatLng(51.0596814, 3.71011151)
     },
     links: [{
         description: "Naar gang L209",
         pano: "pano11012",
         heading: 47
-    },{
+    }, {
         description: "Naar gang L210",
         pano: "pano11018",
         heading: 227
@@ -1249,13 +1253,13 @@ var pano11018 = {
     location: {
         pano: 'pano11018',
         description: 'Gang L210',
-        latLng: new google.maps.LatLng(51.05964409,3.71004677)
+        latLng: new google.maps.LatLng(51.05964409, 3.71004677)
     },
     links: [{
         description: "Naar gang L210",
         pano: "pano11017",
         heading: 47
-    },{
+    }, {
         description: "Naar gang L210",
         pano: "pano11019",
         heading: 317
@@ -1272,13 +1276,13 @@ var pano11019 = {
     location: {
         pano: 'pano11019',
         description: 'Gang L210',
-        latLng: new google.maps.LatLng(51.05968317,3.70999008)
+        latLng: new google.maps.LatLng(51.05968317, 3.70999008)
     },
     links: [{
         description: "Naar gang L210",
         pano: "pano11018",
         heading: 137
-    },{
+    }, {
         description: "Naar gang M201",
         pano: "pano11020",
         heading: 317
@@ -1295,17 +1299,17 @@ var pano11020 = {
     location: {
         pano: 'pano11020',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.05971155,3.70994889)
+        latLng: new google.maps.LatLng(51.05971155, 3.70994889)
     },
     links: [{
         description: "Naar gang L210",
         pano: "pano11019",
         heading: 137
-    },{
+    }, {
         description: "Naar noodtrap",
         pano: "pano11021",
         heading: 241
-    },{
+    }, {
         description: "Naar gang M201",
         pano: "pano11022",
         heading: 317
@@ -1322,7 +1326,7 @@ var pano11021 = {
     location: {
         pano: 'pano11021',
         description: 'Noodtrap',
-        latLng: new google.maps.LatLng(51.05969885,3.70991201)
+        latLng: new google.maps.LatLng(51.05969885, 3.70991201)
     },
     links: [{
         description: "Naar gang M201",
@@ -1341,13 +1345,13 @@ var pano11022 = {
     location: {
         pano: 'pano11022',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.0597469,3.70989761)
+        latLng: new google.maps.LatLng(51.0597469, 3.70989761)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano11020",
         heading: 137
-    },{
+    }, {
         description: "Naar gang M201",
         pano: "pano12008",
         heading: 317
@@ -1364,7 +1368,7 @@ var pano12000 = {
     location: {
         pano: 'pano12000',
         description: 'Traphal M202',
-        latLng: new google.maps.LatLng(51.05992304,3.70988022)
+        latLng: new google.maps.LatLng(51.05992304, 3.70988022)
     },
     links: [{
         description: "Naar gang M201",
@@ -1383,17 +1387,17 @@ var pano12001 = {
     location: {
         pano: 'pano12001',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.05994041,3.70985502)
+        latLng: new google.maps.LatLng(51.05994041, 3.70985502)
     },
     links: [{
         description: "Naar traphal M202",
         pano: "pano12000",
         heading: 137
-    },{
+    }, {
         description: "Naar gang M201",
         pano: "pano12002",
         heading: 227
-    },{
+    }, {
         description: "Naar gang M201",
         pano: "pano12010",
         heading: 47
@@ -1410,17 +1414,17 @@ var pano12002 = {
     location: {
         pano: 'pano12002',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.05992682,3.70983144)
+        latLng: new google.maps.LatLng(51.05992682, 3.70983144)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12001",
         heading: 47
-    },{
+    }, {
         description: "Naar gang M201",
         pano: "pano12003",
         heading: 137
-    },{
+    }, {
         description: "Naar gang M201",
         pano: "pano12007",
         heading: 227
@@ -1437,13 +1441,13 @@ var pano12003 = {
     location: {
         pano: 'pano12003',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.05987788,3.70990313)
+        latLng: new google.maps.LatLng(51.05987788, 3.70990313)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12002",
         heading: 317
-    },{
+    }, {
         description: "Naar gang M201",
         pano: "pano12004",
         heading: 227
@@ -1460,17 +1464,17 @@ var pano12004 = {
     location: {
         pano: 'pano12004',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.0598165,3.70979661)
+        latLng: new google.maps.LatLng(51.0598165, 3.70979661)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12003",
         heading: 47
-    },{
+    }, {
         description: "Naar gang M201",
         pano: "pano12005",
         heading: 317
-    },{
+    }, {
         description: "Naar gang M201",
         pano: "pano12008",
         heading: 137
@@ -1487,13 +1491,13 @@ var pano12005 = {
     location: {
         pano: 'pano12005',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.05984248,3.70975892)
+        latLng: new google.maps.LatLng(51.05984248, 3.70975892)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12004",
         heading: 137
-    },{
+    }, {
         description: "Naar gang M201",
         pano: "pano12006",
         heading: 317
@@ -1510,13 +1514,13 @@ var pano12006 = {
     location: {
         pano: 'pano12006',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.05986565,3.70972529)
+        latLng: new google.maps.LatLng(51.05986565, 3.70972529)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12005",
         heading: 137
-    },{
+    }, {
         description: "Naar gang M201",
         pano: "pano12007",
         heading: 47
@@ -1533,13 +1537,13 @@ var pano12007 = {
     location: {
         pano: 'pano12007',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.0598961,3.70977813)
+        latLng: new google.maps.LatLng(51.0598961, 3.70977813)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12006",
         heading: 227
-    },{
+    }, {
         description: "Naar gang M201",
         pano: "pano12002",
         heading: 47
@@ -1556,17 +1560,17 @@ var pano12008 = {
     location: {
         pano: 'pano12008',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.05978866,3.70983701)
+        latLng: new google.maps.LatLng(51.05978866, 3.70983701)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12004",
         heading: 317
-    },{
+    }, {
         description: "Naar terras",
         pano: "pano12009",
         heading: 56
-    },{
+    }, {
         description: "Naar gang M201",
         pano: "pano11022",
         heading: 137
@@ -1583,7 +1587,7 @@ var pano12009 = {
     location: {
         pano: 'pano12009',
         description: 'Terras',
-        latLng: new google.maps.LatLng(51.05981043,3.70988893)
+        latLng: new google.maps.LatLng(51.05981043, 3.70988893)
     },
     links: [{
         description: "Naar gang M201",
@@ -1602,13 +1606,13 @@ var pano12010 = {
     location: {
         pano: 'pano12010',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.05997044,3.70990714)
+        latLng: new google.maps.LatLng(51.05997044, 3.70990714)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12001",
         heading: 227
-    },{
+    }, {
         description: "Naar gang M201",
         pano: "pano12011",
         heading: 52
@@ -1625,13 +1629,13 @@ var pano12011 = {
     location: {
         pano: 'pano12011',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.06002298,3.71001433)
+        latLng: new google.maps.LatLng(51.06002298, 3.71001433)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12010",
         heading: 232
-    },{
+    }, {
         description: "Naar gang M201",
         pano: "pano12012",
         heading: 48
@@ -1648,13 +1652,13 @@ var pano12012 = {
     location: {
         pano: 'pano12012',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.06005334,3.7100698)
+        latLng: new google.maps.LatLng(51.06005334, 3.7100698)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12011",
         heading: 228
-    },{
+    }, {
         description: "Naar gang M201",
         pano: "pano12013",
         heading: 149
@@ -1671,13 +1675,13 @@ var pano12013 = {
     location: {
         pano: 'pano12013',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.06000625,3.71011466)
+        latLng: new google.maps.LatLng(51.06000625, 3.71011466)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12012",
         heading: 329
-    },{
+    }, {
         description: "Naar gang L201",
         pano: "pano12014",
         heading: 137
@@ -1694,17 +1698,17 @@ var pano12014 = {
     location: {
         pano: 'pano12014',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.05998441,3.71014635)
+        latLng: new google.maps.LatLng(51.05998441, 3.71014635)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12013",
         heading: 317
-    },{
+    }, {
         description: "Naar gang L201",
         pano: "pano11008",
         heading: 137
-    },{
+    }, {
         description: "Naar noodtrap",
         pano: "pano12015",
         heading: 47
@@ -1721,7 +1725,7 @@ var pano12015 = {
     location: {
         pano: 'pano12015',
         description: 'Noodtrap',
-        latLng: new google.maps.LatLng(51.06000225,3.71017695)
+        latLng: new google.maps.LatLng(51.06000225, 3.71017695)
     },
     links: [{
         description: "Naar gang L201",
