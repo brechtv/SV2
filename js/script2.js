@@ -1,9 +1,14 @@
 var map, streetview, overlay, pano, globalpano, neighbourpano;
 
+
 function initialize() {
+
+    neighbourpano = localStorage.getItem("neighbourpano");
+    var initalpano = (typeof neighbourpano != 'undefined' ? neighbourpano : "pano01000");
+
     streetView = new google.maps.StreetViewPanorama(
         document.getElementById('canvas'), {
-            pano: 'pano01000',
+            pano: initalpano,
             visible: true,
             panoProvider: getCustomPanorama
         });
