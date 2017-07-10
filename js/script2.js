@@ -1,4 +1,4 @@
-var map, streetview, overlay, pano, globalpano;
+var map, streetview, overlay, pano, globalpano, neighbourpano;
 
 function initialize() {
     streetView = new google.maps.StreetViewPanorama(
@@ -22,6 +22,8 @@ function initialize() {
             lat: streetView.position.lat(),
             lng: streetView.position.lng()
         });
+
+        console.log(localStorage);
 
         localStorage.clear(); // remove previously stored pano
         globalpano = streetView.getPano(); // get current pano
@@ -146,6 +148,9 @@ function getCustomPanoramaTileUrl(pano, zoom, tileX, tileY) {
 
 function getCustomPanorama(pano, zoom, tileX, tileY) {
     switch (pano) {
+        case globalpano:
+            return neighbourpano;
+            break;
         case 'pano01000':
             return pano01000;
             break;

@@ -1,4 +1,4 @@
-var map, streetview, overlay, pano, globalpano;
+var map, streetview, overlay, pano, globalpano, neighbourpano;
 
 // initialize map & streetView
 // add KML overlay
@@ -33,7 +33,27 @@ function initialize() {
         localStorage.clear(); // remove previously stored pano
         globalpano = streetView.getPano(); // get current pano
         localStorage.setItem("globalpano", globalpano); // write current pano to ls
+
+        neighbourpano = returnNeighbour(globalpano);
+        localStorage.setItem("neighbourpano", neighbourpano.neighbour);
+        console.log(localStorage);
+
+
+
+
+
+        function returnNeighbour(pano) {
+        try {
+            return getCustomPanorama(pano)
+        }
+        catch(err) {
+            return false
+        }
+    }
+
     });
+
+
 
     // add KML layer for buildings
     var KMLLayer = new google.maps.KmlLayer({
@@ -2488,9 +2508,7 @@ var pano05018 = {
         pano: "pano00004",
         heading: 132
     }],
-    buur: [{
-        up: 'pano05000'
-    }],
+    neighbour: 'pano05000',
     copyright: 'KU Leuven',
     tiles: {
         tileSize: new google.maps.Size(4608, 2305),
