@@ -3,7 +3,9 @@ var map, streetview, overlay, pano, globalpano, neighbourpano;
 
 function initialize() {
 
+    // get neighbourpano from local storage
     neighbourpano = localStorage.getItem("neighbourpano");
+    // check if it exists, if it does, use it as first pano, if not, use default
     var initalpano = (typeof neighbourpano != 'undefined' ? neighbourpano : "pano01000");
 
     streetView = new google.maps.StreetViewPanorama(

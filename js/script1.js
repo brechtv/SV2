@@ -2508,7 +2508,10 @@ var pano05018 = {
         pano: "pano00004",
         heading: 132
     }],
-    neighbour: 'pano05000',
+    neighbours: [{
+        up: 'pano05000',
+        down: 'panokusmekloten'
+    }],
     copyright: 'KU Leuven',
     tiles: {
         tileSize: new google.maps.Size(4608, 2305),
