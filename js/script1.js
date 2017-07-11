@@ -66,7 +66,7 @@ function initialize() {
 
     // add KML layer for buildings
     var KMLLayer = new google.maps.KmlLayer({
-        url: 'https://storage.googleapis.com/brechtv/SV%202/files/gelijkvloers3.kml',
+        url: 'https://storage.googleapis.com/brechtv/SV%202/files/Final/GV.kml',
         map: map,
         preserveViewport: true
     });

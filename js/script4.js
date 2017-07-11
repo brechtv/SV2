@@ -98,7 +98,7 @@ function initialize() {
     createMarker(pano12016.location.latLng, map, pano12016.location.pano);
     createMarker(pano12017.location.latLng, map, pano12017.location.pano);
     var ctaLayer = new google.maps.KmlLayer({
-        url: 'https://storage.googleapis.com/brechtv/SV%202/files/verdieping3.kml',
+        url: 'https://storage.googleapis.com/brechtv/SV%202/files/Final/verdieping3.kml',
         map: map,
         preserveViewport: true
     });
