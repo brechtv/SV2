@@ -1,9 +1,25 @@
 var map, streetview, overlay, pano, globalpano;
 
 function initialize() {
+
+        // get neighbourpanos from local storage
+    neighbourpano_from_2 = localStorage.getItem("neighbourpano_from_2_to_3");
+    neighbourpano_from_4 = localStorage.getItem("neighbourpano_from_4_to_2");
+
+    var initialpano;
+    // check if it exists, if it does, use it as first pano, if not, use default
+    if (typeof neighbourpano_from_2 != 'undefined') {
+        initialpano = neighbourpano_from_2
+    } else if (typeof neighbourpano_from_4 != 'undefined') {
+        initialpano = neighbourpano_from_4
+    } else {
+        initialpano = "pano02000"
+    }
+
+
     streetView = new google.maps.StreetViewPanorama(
         document.getElementById('canvas'), {
-            pano: 'pano02000',
+            pano: initialpano,
             visible: true,
             panoProvider: getCustomPanorama
         });
@@ -11,7 +27,7 @@ function initialize() {
     map = new google.maps.Map(
         document.getElementById('map'), {
             center: pano02000.location.latLng,
-            zoom: 19,
+            zoom: 18,
             streetView: streetView,
             streetViewControl: true,
             styles: mapStyle
@@ -22,10 +38,28 @@ function initialize() {
             lat: streetView.position.lat(),
             lng: streetView.position.lng()
         });
-
+        // save current pano to localStorage, clear old storage
         localStorage.clear(); // remove previously stored pano
         globalpano = streetView.getPano(); // get current pano
         localStorage.setItem("globalpano", globalpano); // write current pano to ls
+
+        neighbour = returnNeighbour(globalpano);
+        neighbours = (typeof neighbour != 'undefined' ? neighbour.neighbours : undefined);
+        neighbour_to_4 = (typeof neighbours != 'undefined' ? neighbours[0].up : undefined);
+        neighbour_to_2 = (typeof neighbours != 'undefined' ? neighbours[0].down : undefined);
+
+        localStorage.setItem("neighbourpano_from_3_to_2", neighbour_to_2);
+        localStorage.setItem("neighbourpano_from_3_to_4", neighbour_to_4);
+
+        console.log(localStorage);
+
+        function returnNeighbour(pano) {
+            try {
+                return getCustomPanorama(pano)
+            } catch (err) {
+                return false
+            }
+        }
     });
 
     createMarker(pano02000.location.latLng, map, pano02000.location.pano);

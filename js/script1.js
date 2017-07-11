@@ -4,10 +4,23 @@ var map, streetview, overlay, pano, globalpano, neighbourpano;
 // add KML overlay
 // add markers
 function initialize() {
+
+        // get neighbourpanos from local storage
+    neighbourpano_from_2 = localStorage.getItem("neighbourpano_from_2_to_1");
+
+
+    var initialpano;
+    // check if it exists, if it does, use it as first pano, if not, use default
+    if (typeof neighbourpano_from_2 != 'undefined') {
+        initialpano = neighbourpano_from_2
+    } else {
+        initialpano = "pano01000"
+    }
+
     // initialize streetView
     streetView = new google.maps.StreetViewPanorama(
         document.getElementById('canvas'), {
-            pano: 'pano00001',
+            pano: initialpano,
             visible: true,
             panoProvider: getCustomPanorama
         });
@@ -16,7 +29,7 @@ function initialize() {
     map = new google.maps.Map(
         document.getElementById('map'), {
             center: pano00001.location.latLng,
-            zoom: 19,
+            zoom: 18,
             streetView: streetView,
             streetViewControl: true,
             styles: mapStyle
@@ -29,27 +42,22 @@ function initialize() {
             lng: streetView.position.lng()
         });
 
-    // save current pano to localStorage, clear old storage
+        // save current pano to localStorage, clear old storage
         localStorage.clear(); // remove previously stored pano
         globalpano = streetView.getPano(); // get current pano
-        localStorage.setItem("globalpano", globalpano); // write current pano to ls
+        neighbours = returnNeighbour(globalpano).neighbours;
+        neighbour_to_2 = (typeof neighbours != 'undefined' ? neighbours[0].up : undefined);
+        localStorage.setItem("neighbourpano_from_1_to_2", neighbour_to_2);
 
-        neighbourpano = returnNeighbour(globalpano);
-        localStorage.setItem("neighbourpano", neighbourpano.neighbour);
         console.log(localStorage);
 
-
-
-
-
         function returnNeighbour(pano) {
-        try {
-            return getCustomPanorama(pano)
+            try {
+                return getCustomPanorama(pano)
+            } catch (err) {
+                return false
+            }
         }
-        catch(err) {
-            return false
-        }
-    }
 
     });
 
@@ -2510,7 +2518,7 @@ var pano05018 = {
     }],
     neighbours: [{
         up: 'pano05000',
-        down: 'panokusmekloten'
+        down: 'pano05000'
     }],
     copyright: 'KU Leuven',
     tiles: {
