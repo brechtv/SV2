@@ -5,17 +5,17 @@ var map, streetview, overlay, pano, globalpano, neighbourpano;
 // add markers
 function initialize() {
 
-        // get neighbourpanos from local storage
+    var initialpano;
+
     neighbourpano_from_2 = localStorage.getItem("neighbourpano_from_2_to_1");
 
-
-    var initialpano;
-    // check if it exists, if it does, use it as first pano, if not, use default
-    if (typeof neighbourpano_from_2 != 'undefined') {
+    if (neighbourpano_from_2 != null) {
         initialpano = neighbourpano_from_2
     } else {
-        initialpano = "pano01000"
+        initialpano = "pano00001"
     }
+
+    console.log(initialpano);
 
     // initialize streetView
     streetView = new google.maps.StreetViewPanorama(
@@ -50,6 +50,7 @@ function initialize() {
         localStorage.setItem("neighbourpano_from_1_to_2", neighbour_to_2);
 
         console.log(localStorage);
+        console.log(globalpano);
 
         function returnNeighbour(pano) {
             try {

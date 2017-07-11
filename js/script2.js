@@ -9,9 +9,9 @@ function initialize() {
 
     var initialpano;
     // check if it exists, if it does, use it as first pano, if not, use default
-    if (typeof neighbourpano_from_1 != 'undefined') {
+    if (neighbourpano_from_1 != null) {
         initialpano = neighbourpano_from_1
-    } else if (typeof neighbourpano_from_3 != 'undefined') {
+    } else if (neighbourpano_from_3 != null) {
         initialpano = neighbourpano_from_3
     } else {
         initialpano = "pano01000"

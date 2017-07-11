@@ -2,15 +2,15 @@ var map, streetview, overlay, pano, globalpano;
 
 function initialize() {
 
-            // get neighbourpanos from local storage
+    // get neighbourpanos from local storage
     neighbourpano_from_2 = localStorage.getItem("neighbourpano_from_2_to_3");
     neighbourpano_from_4 = localStorage.getItem("neighbourpano_from_4_to_2");
 
     var initialpano;
     // check if it exists, if it does, use it as first pano, if not, use default
-    if (typeof neighbourpano_from_2 != 'undefined') {
+    if (neighbourpano_from_2 != null) {
         initialpano = neighbourpano_from_2
-    } else if (typeof neighbourpano_from_4 != 'undefined') {
+    } else if (neighbourpano_from_4 != null) {
         initialpano = neighbourpano_from_4
     } else {
         initialpano = 'pano02000'
