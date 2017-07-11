@@ -218,7 +218,7 @@ function createMarker(pos, map, title) {
 }
 
 function getCustomPanoramaTileUrl(pano, zoom, tileX, tileY) {
-    return "https://storage.googleapis.com/brechtv/SV%202/images/Gelijksvloers/" + pano + '.JPG';
+    return "https://storage.googleapis.com/brechtv/SV%202/images/Gelijkvloers/" + pano + '.JPG';
 }
 
 function getCustomPanorama(pano, zoom, tileX, tileY) {
