@@ -105,15 +105,22 @@ function initialize() {
 }
 
 function createMarker(pos, map, title) {
+
+    var dot = {
+        path: 'M-1,0a1,1 0 1,0 2,0a1,1 0 1,0 -2,0',
+        fillColor: '#FFB74D',
+        fillOpacity: 0.1,
+        scale: 0.5,
+        strokeColor: '#FFB74D',
+        strokeWeight: 8
+      };
+
+
     var marker = new google.maps.Marker({
         position: pos,
         map: map,
         title: title,
-        icon: {
-            path: google.maps.SymbolPath.CIRCLE,
-            strokeColor: "#6D7BE3",
-            scale: 5
-        }
+        icon: dot
     });
     marker.addListener("click", function() {
         map.setCenter(marker.getPosition());
