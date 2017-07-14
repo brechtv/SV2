@@ -3,9 +3,11 @@ var room_markers = [];
 // initialize map & streetView
 // add KML overlay
 // add markers
+
 function initialize() {
 
     var initialpano;
+
 
     neighbourpano_from_2 = localStorage.getItem("neighbourpano_from_2_to_1");
 
@@ -22,8 +24,11 @@ function initialize() {
         document.getElementById('canvas'), {
             pano: initialpano,
             visible: true,
-            panoProvider: getCustomPanorama
+            panoProvider: getCustomPanorama,
+            motionTracking: false
         });
+
+    console.log(streetView.getPano())
 
     // initialize map - set mapStyle
     map = new google.maps.Map(
@@ -76,6 +81,7 @@ function initialize() {
         if (a.keyCode == 13) {
           input = $( "#room_search_input" ).val().toUpperCase();
           console.log("INPUT: \"" + input + "\"");
+
 
           room = getRoom(input);
           room_latlng = new google.maps.LatLng(room.lat, room.lng);
