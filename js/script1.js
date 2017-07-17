@@ -4,25 +4,26 @@ var room_markers = [];
 // add KML overlay
 // add markers
 
+
 function initialize() {
 
     var initialpano;
 
-
     neighbourpano_from_2 = localStorage.getItem("neighbourpano_from_2_to_1");
 
     if (neighbourpano_from_2 != null) {
-        initialpano = neighbourpano_from_2
-    } else {
-        initialpano = "pano00001"
+        loadSV(neighbourpano_from_2);
+        } else {
+            loadSV("pano00001");
+        }
     }
 
-    console.log(initialpano);
+function loadSV(pano) {
 
     // initialize streetView
     streetView = new google.maps.StreetViewPanorama(
         document.getElementById('canvas'), {
-            pano: initialpano,
+            pano: pano,
             visible: true,
             panoProvider: getCustomPanorama,
             motionTracking: false

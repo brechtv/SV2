@@ -5,8 +5,6 @@ var room_markers = [];
 // add markers
 
 function initialize() {
-
-    var initialpano;
     // check if it exists, if it does, use it as first pano, if not, use default
         // get neighbourpanos from local storage
     neighbourpano_from_1 = localStorage.getItem("neighbourpano_from_1_to_2");
@@ -14,19 +12,22 @@ function initialize() {
 
     console.log(neighbourpano_from_1);
     console.log(neighbourpano_from_3);
-    if (neighbourpano_from_1 != null || typeof neighbourpano_from_1 != undefined) {
-        initialpano = neighbourpano_from_1
-    } else if (neighbourpano_from_3 != null || typeof neighbourpano_from_1 != undefined) {
-        initialpano = neighbourpano_from_3
-    } else {
-        initialpano = "pano01000"
-    };
 
-    console.log(initialpano);
+    if (neighbourpano_from_1 != null && neighbourpano_from_1 != 'undefined') {
+        loadSV(neighbourpano_from_1);
+    } else if (neighbourpano_from_3 != null && neighbourpano_from_1 != 'undefined') {
+        loadSV(neighbourpano_from_3);
+    } else {
+        loadSV("pano01000");
+    };
+    localStorage.clear();
+}
+
+function loadSV(initpano) {
 
     streetView = new google.maps.StreetViewPanorama(
         document.getElementById('canvas'), {
-            pano: initialpano,
+            pano: initpano,
             visible: true,
             panoProvider: getCustomPanorama
         });
@@ -52,20 +53,16 @@ function initialize() {
         localStorage.clear(); // remove previously stored pano
         globalpano = streetView.getPano(); // get current pano
         localStorage.setItem("globalpano", globalpano); // write current pano to ls
-
-        neighbour = returnNeighbour(globalpano);
-        neighbours = (typeof neighbour != 'undefined' ? neighbour.neighbours : undefined);
-        neighbour_to_3 = (typeof neighbours != 'undefined' ? neighbours[0].up : undefined);
-        neighbour_to_1 = (typeof neighbours != 'undefined' ? neighbours[0].down : undefined);
-
-        localStorage.setItem("neighbourpano_from_2_to_3", neighbour_to_3);
-        localStorage.setItem("neighbourpano_from_2_to_1", neighbour_to_1);
-
-        console.log(localStorage);
+        returnNeighbour(globalpano);
 
         function returnNeighbour(pano) {
             try {
-                return getCustomPanorama(pano)
+                var current_pano = getCustomPanorama(pano)
+                var neighbours = (typeof current_pano != 'undefined' ? current_pano.neighbours : undefined);
+                neighbour_up = (typeof neighbours != 'undefined' ? neighbours[0].up : undefined);
+                neighbour_down = (typeof neighbours != 'undefined' ? neighbours[0].down : undefined);
+                localStorage.setItem("neighbourpano_from_2_to_3", neighbour_up);
+                localStorage.setItem("neighbourpano_from_2_to_1", neighbour_down);
             } catch (err) {
                 return false
             }
@@ -192,15 +189,11 @@ function createMarker(pos, map, title) {
 }
 
 function getCustomPanoramaTileUrl(pano, zoom, tileX, tileY) {
-    console.log("https://storage.googleapis.com/brechtv/SV%202/images/1e%20verdieping/" + pano + '.JPG');
     return "https://storage.googleapis.com/brechtv/SV%202/images/1e%20verdieping/" + pano + '.JPG';
 }
 
 function getCustomPanorama(pano, zoom, tileX, tileY) {
     switch (pano) {
-        case globalpano:
-            return neighbourpano;
-            break;
         case 'pano01000':
             return pano01000;
             break;
