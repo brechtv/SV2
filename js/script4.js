@@ -63,10 +63,10 @@ function loadSV(initpano) {
     $("#room_search_input").keypress(function(a) {
         if (a.keyCode == 13) {
           input = $( "#room_search_input" ).val().toUpperCase();
-          console.log("INPUT: \"" + input + "\"");
-
 
           room = getRoom(input);
+          room == undefined && alert("Gelieve een geldige lokaalnaam in te voeren.");
+
           room_latlng = new google.maps.LatLng(room.lat, room.lng);
           room_name = room.room;
           createRoomMarker(room_latlng, map, room_name);
