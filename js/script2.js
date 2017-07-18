@@ -10,9 +10,6 @@ function initialize() {
     neighbourpano_from_1 = localStorage.getItem("neighbourpano_from_1_to_2");
     neighbourpano_from_3 = localStorage.getItem("neighbourpano_from_3_to_2");
 
-    console.log(neighbourpano_from_1);
-    console.log(neighbourpano_from_3);
-
     if (neighbourpano_from_1 != null && neighbourpano_from_1 != 'undefined') {
         loadSV(neighbourpano_from_1);
     } else if (neighbourpano_from_3 != null && neighbourpano_from_1 != 'undefined') {
@@ -31,8 +28,6 @@ function loadSV(initpano) {
             visible: true,
             panoProvider: getCustomPanorama
         });
-
-    console.log(streetView.getPano())
 
     map = new google.maps.Map(
         document.getElementById('map'), {

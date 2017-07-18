@@ -1,25 +1,30 @@
 var map, streetview, overlay, pano, globalpano;
+var room_markers = [];
+// initialize map & streetView
+// add KML overlay
+// add markers
 
 function initialize() {
-
+    // check if it exists, if it does, use it as first pano, if not, use default
         // get neighbourpanos from local storage
     neighbourpano_from_2 = localStorage.getItem("neighbourpano_from_2_to_3");
-    neighbourpano_from_4 = localStorage.getItem("neighbourpano_from_4_to_2");
+    neighbourpano_from_4 = localStorage.getItem("neighbourpano_from_4_to_3");
 
-    var initialpano;
-    // check if it exists, if it does, use it as first pano, if not, use default
-    if (neighbourpano_from_2 != null) {
-        initialpano = neighbourpano_from_2
-    } else if (neighbourpano_from_4 != null) {
-        initialpano = neighbourpano_from_4
+    if (neighbourpano_from_2 != null && neighbourpano_from_2 != 'undefined') {
+        loadSV(neighbourpano_from_2);
+    } else if (neighbourpano_from_4 != null && neighbourpano_from_4 != 'undefined') {
+        loadSV(neighbourpano_from_4);
     } else {
-        initialpano = "pano02000"
-    }
+        loadSV("pano02000");
+    };
+    localStorage.clear();
+}
 
+function loadSV(initpano) {
 
     streetView = new google.maps.StreetViewPanorama(
         document.getElementById('canvas'), {
-            pano: initialpano,
+            pano: initpano,
             visible: true,
             panoProvider: getCustomPanorama
         });
@@ -38,24 +43,21 @@ function initialize() {
             lat: streetView.position.lat(),
             lng: streetView.position.lng()
         });
+
         // save current pano to localStorage, clear old storage
         localStorage.clear(); // remove previously stored pano
         globalpano = streetView.getPano(); // get current pano
         localStorage.setItem("globalpano", globalpano); // write current pano to ls
-
-        neighbour = returnNeighbour(globalpano);
-        neighbours = (typeof neighbour != 'undefined' ? neighbour.neighbours : undefined);
-        neighbour_to_4 = (typeof neighbours != 'undefined' ? neighbours[0].up : undefined);
-        neighbour_to_2 = (typeof neighbours != 'undefined' ? neighbours[0].down : undefined);
-
-        localStorage.setItem("neighbourpano_from_3_to_2", neighbour_to_2);
-        localStorage.setItem("neighbourpano_from_3_to_4", neighbour_to_4);
-
-        console.log(localStorage);
+        returnNeighbour(globalpano);
 
         function returnNeighbour(pano) {
             try {
-                return getCustomPanorama(pano)
+                var current_pano = getCustomPanorama(pano)
+                var neighbours = (typeof current_pano != 'undefined' ? current_pano.neighbours : undefined);
+                neighbour_up = (typeof neighbours != 'undefined' ? neighbours[0].up : undefined);
+                neighbour_down = (typeof neighbours != 'undefined' ? neighbours[0].down : undefined);
+                localStorage.setItem("neighbourpano_from_3_to_4", neighbour_up);
+                localStorage.setItem("neighbourpano_from_3_to_2", neighbour_down);
             } catch (err) {
                 return false
             }
