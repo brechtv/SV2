@@ -1,25 +1,30 @@
 var map, streetview, overlay, pano, globalpano;
+var room_markers = [];
+// initialize map & streetView
+// add KML overlay
+// add markers
 
 function initialize() {
-
+    // check if it exists, if it does, use it as first pano, if not, use default
         // get neighbourpanos from local storage
     neighbourpano_from_2 = localStorage.getItem("neighbourpano_from_2_to_3");
-    neighbourpano_from_4 = localStorage.getItem("neighbourpano_from_4_to_2");
+    neighbourpano_from_4 = localStorage.getItem("neighbourpano_from_4_to_3");
 
-    var initialpano;
-    // check if it exists, if it does, use it as first pano, if not, use default
-    if (neighbourpano_from_2 != null) {
-        initialpano = neighbourpano_from_2
-    } else if (neighbourpano_from_4 != null) {
-        initialpano = neighbourpano_from_4
+    if (neighbourpano_from_2 != null && neighbourpano_from_2 != 'undefined') {
+        loadSV(neighbourpano_from_2);
+    } else if (neighbourpano_from_4 != null && neighbourpano_from_4 != 'undefined') {
+        loadSV(neighbourpano_from_4);
     } else {
-        initialpano = "pano02000"
-    }
+        loadSV("pano02000");
+    };
+    localStorage.clear();
+}
 
+function loadSV(initpano) {
 
     streetView = new google.maps.StreetViewPanorama(
         document.getElementById('canvas'), {
-            pano: initialpano,
+            pano: initpano,
             visible: true,
             panoProvider: getCustomPanorama
         });
@@ -38,29 +43,88 @@ function initialize() {
             lat: streetView.position.lat(),
             lng: streetView.position.lng()
         });
+
         // save current pano to localStorage, clear old storage
         localStorage.clear(); // remove previously stored pano
         globalpano = streetView.getPano(); // get current pano
         localStorage.setItem("globalpano", globalpano); // write current pano to ls
-
-        neighbour = returnNeighbour(globalpano);
-        neighbours = (typeof neighbour != 'undefined' ? neighbour.neighbours : undefined);
-        neighbour_to_4 = (typeof neighbours != 'undefined' ? neighbours[0].up : undefined);
-        neighbour_to_2 = (typeof neighbours != 'undefined' ? neighbours[0].down : undefined);
-
-        localStorage.setItem("neighbourpano_from_3_to_2", neighbour_to_2);
-        localStorage.setItem("neighbourpano_from_3_to_4", neighbour_to_4);
-
-        console.log(localStorage);
+        returnNeighbour(globalpano);
 
         function returnNeighbour(pano) {
             try {
-                return getCustomPanorama(pano)
+                var current_pano = getCustomPanorama(pano)
+                var neighbours = (typeof current_pano != 'undefined' ? current_pano.neighbours : undefined);
+                neighbour_up = (typeof neighbours != 'undefined' ? neighbours[0].up : undefined);
+                neighbour_down = (typeof neighbours != 'undefined' ? neighbours[0].down : undefined);
+                localStorage.setItem("neighbourpano_from_3_to_4", neighbour_up);
+                localStorage.setItem("neighbourpano_from_3_to_2", neighbour_down);
             } catch (err) {
                 return false
             }
         }
     });
+
+
+    $("#room_search_input").keypress(function(a) {
+        if (a.keyCode == 13) {
+          input = $( "#room_search_input" ).val().toUpperCase();
+
+          room = getRoom(input);
+          room == undefined && alert("Gelieve een geldige lokaalnaam in te voeren.");
+
+          room_latlng = new google.maps.LatLng(room.lat, room.lng);
+          room_name = room.room;
+          createRoomMarker(room_latlng, map, room_name);
+            }
+        });
+
+        function getRoom(input) {
+          for(var i = 0 ; i < ROOMS.length; i++) {
+              var object = ROOMS[i];
+              if (object.room === input) {
+                return object
+              }
+          }
+        }
+
+        function createRoomMarker(pos, map, title) {
+            clearMarkers();
+
+            window.setTimeout(function() {
+
+             var marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    title: title,
+                    animation: google.maps.Animation.DROP
+                  });
+
+             var infowindow = new google.maps.InfoWindow({
+                  content: "<div><h5>Klaslokaal <strong>" + title  + "</strong></h5></div>"
+                });
+
+            infowindow.open(map, marker);
+
+            setTimeout(function() {
+               marker.setMap(null);
+               delete marker;
+              }, 5000);
+            }, 500);
+
+
+
+            map.setCenter(pos);
+            map.setZoom(20);
+
+        }
+
+        function clearMarkers() {
+            for (var i = 0; i < room_markers.length; i++) {
+              room_markers[i].setMap(null);
+            }
+            room_markers = [];
+
+          }
 
     createMarker(pano02000.location.latLng, map, pano02000.location.pano);
     createMarker(pano02001.location.latLng, map, pano02001.location.pano);
@@ -1746,4 +1810,854 @@ var pano12015 = {
         getTileUrl: getCustomPanoramaTileUrl
     }
 };
+
+var ROOMS = [
+    {
+        "floor": 3,
+        "room": "W105",
+        "lat": "51.0619292908275",
+        "lng": "3.70703362246931"
+    },
+    {
+        "floor": 3,
+        "room": "W103",
+        "lat": "51.0619792928903",
+        "lng": "3.70705464466872"
+    },
+    {
+        "floor": 3,
+        "room": "W104",
+        "lat": "51.0619501902635",
+        "lng": "3.70701309757191"
+    },
+    {
+        "floor": 3,
+        "room": "W101",
+        "lat": "51.0619523900409",
+        "lng": "3.70706961275678"
+    },
+    {
+        "floor": 3,
+        "room": "W102",
+        "lat": "51.0619736259736",
+        "lng": "3.70709928340218"
+    },
+    {
+        "floor": 3,
+        "room": "A205",
+        "lat": "51.0600881529327",
+        "lng": "3.70693980898856"
+    },
+    {
+        "floor": 3,
+        "room": "A206",
+        "lat": "51.0600985394047",
+        "lng": "3.70701999466441"
+    },
+    {
+        "floor": 3,
+        "room": "A204",
+        "lat": "51.0600787266732",
+        "lng": "3.70687029353872"
+    },
+    {
+        "floor": 3,
+        "room": "A203",
+        "lat": "51.0600708663921",
+        "lng": "3.70681233714397"
+    },
+    {
+        "floor": 3,
+        "room": "A202",
+        "lat": "51.0600503453373",
+        "lng": "3.70674007617027"
+    },
+    {
+        "floor": 3,
+        "room": "A1T7",
+        "lat": "51.0600718778864",
+        "lng": "3.70723159927835"
+    },
+    {
+        "floor": 3,
+        "room": "A1T5",
+        "lat": "51.0601096844755",
+        "lng": "3.70721588076035"
+    },
+    {
+        "floor": 3,
+        "room": "A1T0",
+        "lat": "51.0601983938623",
+        "lng": "3.70719559659294"
+    },
+    {
+        "floor": 3,
+        "room": "A201",
+        "lat": "51.0600728173531",
+        "lng": "3.70700618382794"
+    },
+    {
+        "floor": 3,
+        "room": "A1T6",
+        "lat": "51.0600932646722",
+        "lng": "3.70719633159726"
+    },
+    {
+        "floor": 3,
+        "room": "A1T4",
+        "lat": "51.0600907339237",
+        "lng": "3.70729309408392"
+    },
+    {
+        "floor": 3,
+        "room": "A1T3",
+        "lat": "51.0601425511559",
+        "lng": "3.70726898220741"
+    },
+    {
+        "floor": 3,
+        "room": "A1T2",
+        "lat": "51.0601887239513",
+        "lng": "3.70723826302784"
+    },
+    {
+        "floor": 3,
+        "room": "A1T1",
+        "lat": "51.0602263505618",
+        "lng": "3.70723039497274"
+    },
+    {
+        "floor": 3,
+        "room": "G1T1",
+        "lat": "51.0597805024951",
+        "lng": "3.70682939208972"
+    },
+    {
+        "floor": 3,
+        "room": "G211",
+        "lat": "51.0596920441095",
+        "lng": "3.70653906627271"
+    },
+    {
+        "floor": 3,
+        "room": "G217",
+        "lat": "51.0596219835898",
+        "lng": "3.70656691627663"
+    },
+    {
+        "floor": 3,
+        "room": "G213",
+        "lat": "51.0597306668469",
+        "lng": "3.70662779448209"
+    },
+    {
+        "floor": 3,
+        "room": "G212",
+        "lat": "51.0597581869825",
+        "lng": "3.70665198473677"
+    },
+    {
+        "floor": 3,
+        "room": "G214",
+        "lat": "51.05976231525",
+        "lng": "3.70653713366447"
+    },
+    {
+        "floor": 3,
+        "room": "G215",
+        "lat": "51.0597898354039",
+        "lng": "3.70656132388219"
+    },
+    {
+        "floor": 3,
+        "room": "G216",
+        "lat": "51.0598173358953",
+        "lng": "3.7065854968496"
+    },
+    {
+        "floor": 3,
+        "room": "G207",
+        "lat": "51.0598537448761",
+        "lng": "3.70663492705663"
+    },
+    {
+        "floor": 3,
+        "room": "G206",
+        "lat": "51.059913693061",
+        "lng": "3.7066876218273"
+    },
+    {
+        "floor": 3,
+        "room": "G205",
+        "lat": "51.0599862675417",
+        "lng": "3.70675141538836"
+    },
+    {
+        "floor": 3,
+        "room": "G204",
+        "lat": "51.0598683226574",
+        "lng": "3.70674851936902"
+    },
+    {
+        "floor": 3,
+        "room": "G203",
+        "lat": "51.0598756358868",
+        "lng": "3.70680347306265"
+    },
+    {
+        "floor": 3,
+        "room": "G210",
+        "lat": "51.0597968055978",
+        "lng": "3.70674722812012"
+    },
+    {
+        "floor": 3,
+        "room": "G201d",
+        "lat": "51.0600514236182",
+        "lng": "3.707064013198"
+    },
+    {
+        "floor": 3,
+        "room": "G200",
+        "lat": "51.060047166532",
+        "lng": "3.7071031611573"
+    },
+    {
+        "floor": 3,
+        "room": "G201",
+        "lat": "51.0599568843934",
+        "lng": "3.70693571322312"
+    },
+    {
+        "floor": 3,
+        "room": "G201a",
+        "lat": "51.0599823185126",
+        "lng": "3.70707719144337"
+    },
+    {
+        "floor": 3,
+        "room": "G201c",
+        "lat": "51.0599402751546",
+        "lng": "3.70711283963474"
+    },
+    {
+        "floor": 3,
+        "room": "G201b",
+        "lat": "51.0599885964808",
+        "lng": "3.70711766350908"
+    },
+    {
+        "floor": 3,
+        "room": "B221",
+        "lat": "51.0611600000974",
+        "lng": "3.70586900962317"
+    },
+    {
+        "floor": 3,
+        "room": "B214",
+        "lat": "51.0611708129345",
+        "lng": "3.706052213149"
+    },
+    {
+        "floor": 3,
+        "room": "B220",
+        "lat": "51.0612161211383",
+        "lng": "3.70597650412007"
+    },
+    {
+        "floor": 3,
+        "room": "B207",
+        "lat": "51.0613458103112",
+        "lng": "3.70618505842468"
+    },
+    {
+        "floor": 3,
+        "room": "B206",
+        "lat": "51.061432597446",
+        "lng": "3.7063114290304"
+    },
+    {
+        "floor": 3,
+        "room": "B228",
+        "lat": "51.0611074975298",
+        "lng": "3.70628153002411"
+    },
+    {
+        "floor": 3,
+        "room": "B229",
+        "lat": "51.0610626133446",
+        "lng": "3.70620314887069"
+    },
+    {
+        "floor": 3,
+        "room": "B227",
+        "lat": "51.0611460345101",
+        "lng": "3.70634882726136"
+    },
+    {
+        "floor": 3,
+        "room": "B226",
+        "lat": "51.06118487389",
+        "lng": "3.70641665276084"
+    },
+    {
+        "floor": 3,
+        "room": "B225",
+        "lat": "51.0612294560859",
+        "lng": "3.70649450720676"
+    },
+    {
+        "floor": 3,
+        "room": "B230",
+        "lat": "51.0610261896299",
+        "lng": "3.70610003958221"
+    },
+    {
+        "floor": 3,
+        "room": "B215",
+        "lat": "51.0611088493137",
+        "lng": "3.70598207794841"
+    },
+    {
+        "floor": 3,
+        "room": "B213",
+        "lat": "51.0612224110517",
+        "lng": "3.70616283278751"
+    },
+    {
+        "floor": 3,
+        "room": "B216",
+        "lat": "51.0612626321523",
+        "lng": "3.70605801798517"
+    },
+    {
+        "floor": 3,
+        "room": "B204",
+        "lat": "51.0614140916989",
+        "lng": "3.70643308882834"
+    },
+    {
+        "floor": 3,
+        "room": "B205",
+        "lat": "51.0613873998306",
+        "lng": "3.706386534674"
+    },
+    {
+        "floor": 3,
+        "room": "B200",
+        "lat": "51.0613688590499",
+        "lng": "3.70662961371162"
+    },
+    {
+        "floor": 3,
+        "room": "B202",
+        "lat": "51.0613181762991",
+        "lng": "3.7067434605496"
+    },
+    {
+        "floor": 3,
+        "room": "B219",
+        "lat": "51.061260987538",
+        "lng": "3.70596816623217"
+    },
+    {
+        "floor": 3,
+        "room": "B218b",
+        "lat": "51.0612839072943",
+        "lng": "3.70599679065572"
+    },
+    {
+        "floor": 3,
+        "room": "B218a",
+        "lat": "51.0613031607416",
+        "lng": "3.70603041285227"
+    },
+    {
+        "floor": 3,
+        "room": "B201b",
+        "lat": "51.0612343366889",
+        "lng": "3.70609882023862"
+    },
+    {
+        "floor": 3,
+        "room": "B212",
+        "lat": "51.0612473467723",
+        "lng": "3.70620637805506"
+    },
+    {
+        "floor": 3,
+        "room": "B211",
+        "lat": "51.0612668419607",
+        "lng": "3.7062404225693"
+    },
+    {
+        "floor": 3,
+        "room": "B210",
+        "lat": "51.0612863371392",
+        "lng": "3.7062744671119"
+    },
+    {
+        "floor": 3,
+        "room": "B209",
+        "lat": "51.0613058323076",
+        "lng": "3.70630851168287"
+    },
+    {
+        "floor": 3,
+        "room": "B208",
+        "lat": "51.0613253274662",
+        "lng": "3.70634255628221"
+    },
+    {
+        "floor": 3,
+        "room": "B240",
+        "lat": "51.0612114333783",
+        "lng": "3.7062235881031"
+    },
+    {
+        "floor": 3,
+        "room": "B201c",
+        "lat": "51.0613584526622",
+        "lng": "3.70635743751812"
+    },
+    {
+        "floor": 3,
+        "room": "B203b",
+        "lat": "51.0613564036626",
+        "lng": "3.70642351457888"
+    },
+    {
+        "floor": 3,
+        "room": "B203a",
+        "lat": "51.0613862999085",
+        "lng": "3.70647316450758"
+    },
+    {
+        "floor": 3,
+        "room": "B231",
+        "lat": "51.0609755002194",
+        "lng": "3.7061946591041"
+    },
+    {
+        "floor": 3,
+        "room": "B232",
+        "lat": "51.0609566545963",
+        "lng": "3.70616174917627"
+    },
+    {
+        "floor": 3,
+        "room": "B233",
+        "lat": "51.060944044886",
+        "lng": "3.70611210324901"
+    },
+    {
+        "floor": 3,
+        "room": "B239",
+        "lat": "51.0610692722375",
+        "lng": "3.70586180381536"
+    },
+    {
+        "floor": 3,
+        "room": "B236",
+        "lat": "51.060998238652",
+        "lng": "3.7059558990049"
+    },
+    {
+        "floor": 3,
+        "room": "B235",
+        "lat": "51.0609808308274",
+        "lng": "3.70598890319822"
+    },
+    {
+        "floor": 3,
+        "room": "B234",
+        "lat": "51.0609524586508",
+        "lng": "3.70602981589862"
+    },
+    {
+        "floor": 3,
+        "room": "B237",
+        "lat": "51.0610289326414",
+        "lng": "3.70591896198397"
+    },
+    {
+        "floor": 3,
+        "room": "B238",
+        "lat": "51.061055470101",
+        "lng": "3.70588390827506"
+    },
+    {
+        "floor": 3,
+        "room": "B223",
+        "lat": "51.0612989476566",
+        "lng": "3.70649861774265"
+    },
+    {
+        "floor": 3,
+        "room": "B224",
+        "lat": "51.0612585344835",
+        "lng": "3.70655689314671"
+    },
+    {
+        "floor": 3,
+        "room": "B222",
+        "lat": "51.0612439630418",
+        "lng": "3.70663919250241"
+    },
+    {
+        "floor": 3,
+        "room": "B201a",
+        "lat": "51.0613239059983",
+        "lng": "3.70666448324091"
+    },
+    {
+        "floor": 3,
+        "room": "B201",
+        "lat": "51.0613531197756",
+        "lng": "3.706497702557"
+    },
+    {
+        "floor": 3,
+        "room": "B217",
+        "lat": "51.0612994979962",
+        "lng": "3.70609736951438"
+    },
+    {
+        "floor": 3,
+        "room": "C203",
+        "lat": "51.0612718000404",
+        "lng": "3.70688839079711"
+    },
+    {
+        "floor": 3,
+        "room": "C201",
+        "lat": "51.0613917882533",
+        "lng": "3.70674934525709"
+    },
+    {
+        "floor": 3,
+        "room": "C202",
+        "lat": "51.0614210839582",
+        "lng": "3.70681111035591"
+    },
+    {
+        "floor": 3,
+        "room": "E220",
+        "lat": "51.0605487180777",
+        "lng": "3.70801355788627"
+    },
+    {
+        "floor": 3,
+        "room": "E222",
+        "lat": "51.0604935401149",
+        "lng": "3.7081010874003"
+    },
+    {
+        "floor": 3,
+        "room": "M240",
+        "lat": "51.0604807524844",
+        "lng": "3.70872551533146"
+    },
+    {
+        "floor": 3,
+        "room": "L201",
+        "lat": "51.0603234360117",
+        "lng": "3.70897882187379"
+    },
+    {
+        "floor": 3,
+        "room": "L203",
+        "lat": "51.0603254818091",
+        "lng": "3.7089052223643"
+    },
+    {
+        "floor": 3,
+        "room": "L222",
+        "lat": "51.0603014782186",
+        "lng": "3.70931378423003"
+    },
+    {
+        "floor": 3,
+        "room": "L212",
+        "lat": "51.0605049077305",
+        "lng": "3.70904136896209"
+    },
+    {
+        "floor": 3,
+        "room": "L224",
+        "lat": "51.0602931292129",
+        "lng": "3.70915658796771"
+    },
+    {
+        "floor": 3,
+        "room": "M224",
+        "lat": "51.0605546908918",
+        "lng": "3.70861793776355"
+    },
+    {
+        "floor": 3,
+        "room": "M212",
+        "lat": "51.0603899112879",
+        "lng": "3.70836316286613"
+    },
+    {
+        "floor": 3,
+        "room": "L206",
+        "lat": "51.0603675240278",
+        "lng": "3.7090727692803"
+    },
+    {
+        "floor": 3,
+        "room": "L205",
+        "lat": "51.0603827810557",
+        "lng": "3.70905063101175"
+    },
+    {
+        "floor": 3,
+        "room": "L207",
+        "lat": "51.0603427456483",
+        "lng": "3.70902609696148"
+    },
+    {
+        "floor": 3,
+        "room": "L208",
+        "lat": "51.0603492866935",
+        "lng": "3.70898616449317"
+    },
+    {
+        "floor": 3,
+        "room": "L202",
+        "lat": "51.0603038513282",
+        "lng": "3.7089671345434"
+    },
+    {
+        "floor": 3,
+        "room": "M205",
+        "lat": "51.0603800150971",
+        "lng": "3.70853907403301"
+    },
+    {
+        "floor": 3,
+        "room": "M206",
+        "lat": "51.0603958644079",
+        "lng": "3.70851849200146"
+    },
+    {
+        "floor": 3,
+        "room": "M207",
+        "lat": "51.0604203029774",
+        "lng": "3.70856565747406"
+    },
+    {
+        "floor": 3,
+        "room": "M208",
+        "lat": "51.0604125998413",
+        "lng": "3.70860196133379"
+    },
+    {
+        "floor": 3,
+        "room": "M201",
+        "lat": "51.0604366697043",
+        "lng": "3.70860674177391"
+    },
+    {
+        "floor": 3,
+        "room": "M222",
+        "lat": "51.0605207852513",
+        "lng": "3.70855909907228"
+    },
+    {
+        "floor": 3,
+        "room": "M203",
+        "lat": "51.0604379071754",
+        "lng": "3.70868603882199"
+    },
+    {
+        "floor": 3,
+        "room": "M202",
+        "lat": "51.060458680721",
+        "lng": "3.70862263949847"
+    },
+    {
+        "floor": 3,
+        "room": "L220",
+        "lat": "51.0603867340347",
+        "lng": "3.7092635767838"
+    },
+    {
+        "floor": 3,
+        "room": "L223",
+        "lat": "51.0603711266587",
+        "lng": "3.70923649188519"
+    },
+    {
+        "floor": 3,
+        "room": "L226",
+        "lat": "51.0602080553123",
+        "lng": "3.70896736945603"
+    },
+    {
+        "floor": 3,
+        "room": "L209",
+        "lat": "51.0602668635236",
+        "lng": "3.70887642014678"
+    },
+    {
+        "floor": 3,
+        "room": "L232",
+        "lat": "51.0601784934837",
+        "lng": "3.70867434571025"
+    },
+    {
+        "floor": 3,
+        "room": "L230",
+        "lat": "51.0601340148256",
+        "lng": "3.70873888136205"
+    },
+    {
+        "floor": 3,
+        "room": "L228",
+        "lat": "51.060152695871",
+        "lng": "3.70882020342452"
+    },
+    {
+        "floor": 3,
+        "room": "L234",
+        "lat": "51.0602270466227",
+        "lng": "3.70878238176721"
+    },
+    {
+        "floor": 3,
+        "room": "L210",
+        "lat": "51.0602073329881",
+        "lng": "3.7087481714732"
+    },
+    {
+        "floor": 3,
+        "room": "M210",
+        "lat": "51.0602658345575",
+        "lng": "3.70852006450961"
+    },
+    {
+        "floor": 3,
+        "room": "M220",
+        "lat": "51.0604995551152",
+        "lng": "3.70852225708842"
+    },
+    {
+        "floor": 3,
+        "room": "M215",
+        "lat": "51.0603165448494",
+        "lng": "3.7085177051049"
+    },
+    {
+        "floor": 3,
+        "room": "M218",
+        "lat": "51.0604629741067",
+        "lng": "3.70852556830273"
+    },
+    {
+        "floor": 3,
+        "room": "M217",
+        "lat": "51.0604959423253",
+        "lng": "3.70847772989076"
+    },
+    {
+        "floor": 3,
+        "room": "M225",
+        "lat": "51.0605932231",
+        "lng": "3.70867529377958"
+    },
+    {
+        "floor": 3,
+        "room": "M226",
+        "lat": "51.06061723058",
+        "lng": "3.70872646736276"
+    },
+    {
+        "floor": 3,
+        "room": "M228",
+        "lat": "51.0606638286759",
+        "lng": "3.70880733267848"
+    },
+    {
+        "floor": 3,
+        "room": "M214",
+        "lat": "51.0603435761356",
+        "lng": "3.70847848158044"
+    },
+    {
+        "floor": 3,
+        "room": "M213",
+        "lat": "51.0603072404924",
+        "lng": "3.70843920531628"
+    },
+    {
+        "floor": 3,
+        "room": "L236",
+        "lat": "51.0602461536744",
+        "lng": "3.7088155394643"
+    },
+    {
+        "floor": 3,
+        "room": "L219",
+        "lat": "51.0603564965639",
+        "lng": "3.70921110297768"
+    },
+    {
+        "floor": 3,
+        "room": "L214",
+        "lat": "51.0604880918347",
+        "lng": "3.70906576925037"
+    },
+    {
+        "floor": 3,
+        "room": "L216a",
+        "lat": "51.0604686059531",
+        "lng": "3.70909404372422"
+    },
+    {
+        "floor": 3,
+        "room": "L216",
+        "lat": "51.0604472626858",
+        "lng": "3.70912501326983"
+    },
+    {
+        "floor": 3,
+        "room": "L218",
+        "lat": "51.0604134318488",
+        "lng": "3.70917410246839"
+    },
+    {
+        "floor": 3,
+        "room": "M232",
+        "lat": "51.0605833250665",
+        "lng": "3.70892951589261"
+    },
+    {
+        "floor": 3,
+        "room": "M230",
+        "lat": "51.0606127113711",
+        "lng": "3.70888687536282"
+    },
+    {
+        "floor": 3,
+        "room": "M216",
+        "lat": "51.0604590535879",
+        "lng": "3.7084461597768"
+    },
+    {
+        "floor": 3,
+        "room": "M236",
+        "lat": "51.060516702952",
+        "lng": "3.70878790277659"
+    },
+    {
+        "floor": 3,
+        "room": "M234",
+        "lat": "51.0605342935681",
+        "lng": "3.70881842910047"
+    }
+];
+
 google.maps.event.addDomListener(window, 'load', initialize);
