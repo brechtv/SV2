@@ -415,12 +415,16 @@ var pano02000 = {
     location: {
         pano: 'pano02000',
         description: 'Traphal B200',
-        latLng: new google.maps.LatLng(51.0608323, 3.70788232)
+        latLng: new google.maps.LatLng(51.0608323,3.70788232)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02001",
         heading: 147
+    }],
+    neighbours: [{
+        up: 'pano02016',
+        down: 'pano02014'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -434,20 +438,24 @@ var pano02001 = {
     location: {
         pano: 'pano02001',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.0608058, 3.70790963)
+        latLng: new google.maps.LatLng(51.0608058,3.70790963)
     },
     links: [{
         description: "Naar traphal B200",
         pano: "pano02000",
         heading: 327
-    }, {
+    },{
         description: "Naar gang B201",
         pano: "pano02002",
         heading: 47
-    }, {
+    },{
         description: "Naar gang B201",
         pano: "pano02004",
         heading: 227
+    }],
+    neighbours: [{
+        up: 'pano02014',
+        down: 'pano02001'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -461,16 +469,20 @@ var pano02002 = {
     location: {
         pano: 'pano02002',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06082126, 3.70793663)
+        latLng: new google.maps.LatLng(51.06082126,3.70793663)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02001",
         heading: 227
-    }, {
+    },{
         description: "Naar gang B201",
         pano: "pano02003",
         heading: 137
+    }],
+    neighbours: [{
+        up: 'pano02014',
+        down: 'pano02001'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -484,12 +496,16 @@ var pano02003 = {
     location: {
         pano: 'pano02003',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06080183, 3.70796534)
+        latLng: new google.maps.LatLng(51.06080183,3.70796534)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02002",
         heading: 317
+    }],
+    neighbours: [{
+        up: 'pano02015',
+        down: 'pano02001'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -503,16 +519,20 @@ var pano02004 = {
     location: {
         pano: 'pano02004',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06076328, 3.70783536)
+        latLng: new google.maps.LatLng(51.06076328,3.70783536)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02001",
         heading: 47
-    }, {
+    },{
         description: "Naar gang B201",
         pano: "pano02005",
         heading: 317
+    }],
+    neighbours: [{
+        up: 'pano02012',
+        down: 'pano02002'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -526,16 +546,20 @@ var pano02005 = {
     location: {
         pano: 'pano02005',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06081394, 3.70776231)
+        latLng: new google.maps.LatLng(51.06081394,3.70776231)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02004",
         heading: 137
-    }, {
+    },{
         description: "Naar gang B201",
         pano: "pano02006",
         heading: 227
+    }],
+    neighbours: [{
+        up: 'pano02011',
+        down: 'pano02003'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -549,16 +573,20 @@ var pano02006 = {
     location: {
         pano: 'pano02006',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06076866, 3.70768324)
+        latLng: new google.maps.LatLng(51.06076866,3.70768324)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02005",
         heading: 47
-    }, {
+    },{
         description: "Naar gang B201",
         pano: "pano02007",
         heading: 227
+    }],
+    neighbours: [{
+        up: 'pano02011',
+        down: 'pano02003'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -572,16 +600,20 @@ var pano02007 = {
     location: {
         pano: 'pano02007',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06071833, 3.70759535)
+        latLng: new google.maps.LatLng(51.06071833,3.70759535)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02006",
         heading: 47
-    }, {
+    },{
         description: "Naar gang B201",
         pano: "pano02008",
         heading: 227
+    }],
+    neighbours: [{
+        up: 'pano02009',
+        down: 'pano02004'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -595,16 +627,20 @@ var pano02008 = {
     location: {
         pano: 'pano02008',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06067947, 3.70752748)
+        latLng: new google.maps.LatLng(51.06067947,3.70752748)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02007",
         heading: 47
-    }, {
+    },{
         description: "Naar gang B201",
         pano: "pano02009",
         heading: 227
+    }],
+    neighbours: [{
+        up: 'pano02008',
+        down: 'pano02008'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -618,16 +654,20 @@ var pano02009 = {
     location: {
         pano: 'pano02009',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06062593, 3.70743399)
+        latLng: new google.maps.LatLng(51.06062593,3.70743399)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02008",
         heading: 47
-    }, {
+    },{
         description: "Naar gang B201",
         pano: "pano02010",
         heading: 227
+    }],
+    neighbours: [{
+        up: 'pano02006',
+        down: 'pano02009'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -641,16 +681,20 @@ var pano02010 = {
     location: {
         pano: 'pano02010',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06057884, 3.70735176)
+        latLng: new google.maps.LatLng(51.06057884,3.70735176)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02009",
         heading: 47
-    }, {
+    },{
         description: "Naar gang B201",
         pano: "pano02011",
         heading: 227
+    }],
+    neighbours: [{
+        up: 'pano02005',
+        down: 'pano02009'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -664,20 +708,24 @@ var pano02011 = {
     location: {
         pano: 'pano02011',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06050654, 3.7072255)
+        latLng: new google.maps.LatLng(51.06050654,3.7072255)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02010",
         heading: 47
-    }, {
+    },{
         description: "Naar gang B201",
         pano: "pano02012",
         heading: 139
-    }, {
+    },{
         description: "Naar gang B201",
         pano: "pano02013",
         heading: 320
+    }],
+    neighbours: [{
+        up: 'pano02002',
+        down: 'pano02011'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -691,12 +739,16 @@ var pano02012 = {
     location: {
         pano: 'pano02012',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.0604383, 3.7073173)
+        latLng: new google.maps.LatLng(51.0604383,3.7073173)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02011",
         heading: 319
+    }],
+    neighbours: [{
+        up: 'pano02003',
+        down: 'pano02012'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -710,16 +762,20 @@ var pano02013 = {
     location: {
         pano: 'pano02013',
         description: 'Gang B201',
-        latLng: new google.maps.LatLng(51.06055166, 3.70716656)
+        latLng: new google.maps.LatLng(51.06055166,3.70716656)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02011",
         heading: 140
-    }, {
+    },{
         description: "Naar noodtrap B239",
         pano: "pano02014",
         heading: 237
+    }],
+    neighbours: [{
+        up: 'pano02001',
+        down: 'pano02013'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -733,12 +789,16 @@ var pano02014 = {
     location: {
         pano: 'pano02014',
         description: 'Noodtrap B239',
-        latLng: new google.maps.LatLng(51.06053145, 3.70711629)
+        latLng: new google.maps.LatLng(51.06053145,3.70711629)
     },
     links: [{
         description: "Naar gang B201",
         pano: "pano02013",
         heading: 57
+    }],
+    neighbours: [{
+        up: 'pano02000',
+        down: 'pano02015'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -752,12 +812,16 @@ var pano05000 = {
     location: {
         pano: 'pano05000',
         description: 'Traphal E222',
-        latLng: new google.maps.LatLng(51.0599667, 3.70936559)
+        latLng: new google.maps.LatLng(51.0599667,3.70936559)
     },
     links: [{
         description: "FOUT",
         pano: "pano02013",
         heading: 292
+    }],
+    neighbours: [{
+        up: 'pano05000',
+        down: 'pano05000'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -771,12 +835,15 @@ var pano07000 = {
     location: {
         pano: 'pano07000',
         description: 'Traphal G210',
-        latLng: new google.maps.LatLng(51.05924978, 3.70805315)
+        latLng: new google.maps.LatLng(51.05924978,3.70805315)
     },
     links: [{
         description: "Naar traphal G210",
         pano: "pano07001",
         heading: 281
+    }],
+    neighbours: [{
+        down: 'pano07000'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -790,16 +857,19 @@ var pano07001 = {
     location: {
         pano: 'pano07001',
         description: 'Traphal G210',
-        latLng: new google.maps.LatLng(51.05925642, 3.70799902)
+        latLng: new google.maps.LatLng(51.05925642,3.70799902)
     },
     links: [{
         description: "Naar traphal G210",
         pano: "pano07000",
         heading: 101
-    }, {
+    },{
         description: "Naar gang G204",
         pano: "pano07002",
         heading: 299
+    }],
+    neighbours: [{
+        down: 'pano07001'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -813,16 +883,19 @@ var pano07002 = {
     location: {
         pano: 'pano07002',
         description: 'Gang G204',
-        latLng: new google.maps.LatLng(51.05927358, 3.70794986)
+        latLng: new google.maps.LatLng(51.05927358,3.70794986)
     },
     links: [{
         description: "Naar traphal G210",
         pano: "pano07001",
         heading: 119
-    }, {
+    },{
         description: "Naar gang G204",
         pano: "pano07003",
         heading: 28
+    }],
+    neighbours: [{
+        down: 'pano07002'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -836,16 +909,19 @@ var pano07003 = {
     location: {
         pano: 'pano07003',
         description: 'Gang G204',
-        latLng: new google.maps.LatLng(51.05931264, 3.70798419)
+        latLng: new google.maps.LatLng(51.05931264,3.70798419)
     },
     links: [{
         description: "Naar gang G204",
         pano: "pano07002",
         heading: 208
-    }, {
+    },{
         description: "Naar gang G204",
         pano: "pano07004",
         heading: 28
+    }],
+    neighbours: [{
+        down: 'pano07006'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -859,16 +935,19 @@ var pano07004 = {
     location: {
         pano: 'pano07004',
         description: 'Gang G204',
-        latLng: new google.maps.LatLng(51.05935686, 3.70802318)
+        latLng: new google.maps.LatLng(51.05935686,3.70802318)
     },
     links: [{
         description: "Naar gang G204",
         pano: "pano07003",
         heading: 208
-    }, {
+    },{
         description: "Naar gang G204",
         pano: "pano07005",
         heading: 50
+    }],
+    neighbours: [{
+        down: 'pano07007'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -882,12 +961,15 @@ var pano07005 = {
     location: {
         pano: 'pano07005',
         description: 'Gang G204',
-        latLng: new google.maps.LatLng(51.05937402, 3.70805635)
+        latLng: new google.maps.LatLng(51.05937402,3.70805635)
     },
     links: [{
         description: "Naar gang G204",
         pano: "pano07004",
         heading: 230
+    }],
+    neighbours: [{
+        down: 'pano07007'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -901,12 +983,16 @@ var pano11000 = {
     location: {
         pano: 'pano11000',
         description: 'Traphal L202',
-        latLng: new google.maps.LatLng(51.05977339, 3.71021651)
+        latLng: new google.maps.LatLng(51.05977339,3.71021651)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11001",
         heading: 249
+    }],
+    neighbours: [{
+        up: 'pano11000',
+        down: 'pano11000'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -920,20 +1006,24 @@ var pano11001 = {
     location: {
         pano: 'pano11001',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.05975624, 3.7102414)
+        latLng: new google.maps.LatLng(51.05975624,3.7102414)
     },
     links: [{
         description: "Naar traphal L202",
         pano: "pano11000",
         heading: 317
-    }, {
+    },{
         description: "Naar gang L201",
         pano: "pano11002",
         heading: 47
-    }, {
+    },{
         description: "Naar gang L209",
         pano: "pano11012",
         heading: 227
+    }],
+    neighbours: [{
+        up: 'pano11001',
+        down: 'pano11001'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -947,20 +1037,24 @@ var pano11002 = {
     location: {
         pano: 'pano11002',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.05977033, 3.71026585)
+        latLng: new google.maps.LatLng(51.05977033,3.71026585)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11001",
         heading: 227
-    }, {
+    },{
         description: "Naar gang L201",
         pano: "pano11003",
         heading: 47
-    }, {
+    },{
         description: "Naar gang L201",
         pano: "pano11011",
         heading: 319
+    }],
+    neighbours: [{
+        up: 'pano11002',
+        down: 'pano11002'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -974,16 +1068,20 @@ var pano11003 = {
     location: {
         pano: 'pano11003',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.0597959, 3.71031023)
+        latLng: new google.maps.LatLng(51.0597959,3.71031023)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11002",
         heading: 227
-    }, {
+    },{
         description: "Naar gang L201",
         pano: "pano11004",
         heading: 47
+    }],
+    neighbours: [{
+        up: 'pano11002',
+        down: 'pano11003'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -997,16 +1095,20 @@ var pano11004 = {
     location: {
         pano: 'pano11004',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.0598303, 3.71036994)
+        latLng: new google.maps.LatLng(51.0598303,3.71036994)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11003",
         heading: 227
-    }, {
+    },{
         description: "Naar gang L201",
         pano: "pano11005",
         heading: 317
+    }],
+    neighbours: [{
+        up: 'pano11003',
+        down: 'pano11004'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1020,16 +1122,20 @@ var pano11005 = {
     location: {
         pano: 'pano11005',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.05985651, 3.71033192)
+        latLng: new google.maps.LatLng(51.05985651,3.71033192)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11004",
         heading: 137
-    }, {
+    },{
         description: "Naar gang L201",
         pano: "pano11006",
         heading: 317
+    }],
+    neighbours: [{
+        up: 'pano11006',
+        down: 'pano11005'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1043,20 +1149,24 @@ var pano11006 = {
     location: {
         pano: 'pano11006',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.05987622, 3.71030332)
+        latLng: new google.maps.LatLng(51.05987622,3.71030332)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11005",
         heading: 137
-    }, {
+    },{
         description: "Naar gang L201",
         pano: "pano11007",
         heading: 317
-    }, {
+    },{
         description: "Naar gang L201",
         pano: "pano11010",
         heading: 229
+    }],
+    neighbours: [{
+        up: 'pano11007',
+        down: 'pano11006'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1070,20 +1180,24 @@ var pano11007 = {
     location: {
         pano: 'pano11007',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.0599073, 3.71025823)
+        latLng: new google.maps.LatLng(51.0599073,3.71025823)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11006",
         heading: 137
-    }, {
+    },{
         description: "Naar gang L201",
         pano: "pano11008",
         heading: 317
-    }, {
+    },{
         description: "Naar terras",
         pano: "pano11009",
         heading: 234
+    }],
+    neighbours: [{
+        up: 'pano11008',
+        down: 'pano11007'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1097,16 +1211,20 @@ var pano11008 = {
     location: {
         pano: 'pano11008',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.05993598, 3.71021662)
+        latLng: new google.maps.LatLng(51.05993598,3.71021662)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11007",
         heading: 137
-    }, {
+    },{
         description: "Naar gang L201",
         pano: "pano12014",
         heading: 317
+    }],
+    neighbours: [{
+        up: 'pano11009',
+        down: 'pano11007'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1120,12 +1238,16 @@ var pano11009 = {
     location: {
         pano: 'pano11009',
         description: 'Terras',
-        latLng: new google.maps.LatLng(51.05988283, 3.710203)
+        latLng: new google.maps.LatLng(51.05988283,3.710203)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11007",
         heading: 54
+    }],
+    neighbours: [{
+        up: 'pano11008',
+        down: 'pano11007'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1139,16 +1261,20 @@ var pano11010 = {
     location: {
         pano: 'pano11010',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.05984908, 3.71025197)
+        latLng: new google.maps.LatLng(51.05984908,3.71025197)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11006",
         heading: 49
-    }, {
+    },{
         description: "Naar gang L201",
         pano: "pano11011",
         heading: 222
+    }],
+    neighbours: [{
+        up: 'pano11010',
+        down: 'pano11008'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1162,16 +1288,20 @@ var pano11011 = {
     location: {
         pano: 'pano11011',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.05981552, 3.71020372)
+        latLng: new google.maps.LatLng(51.05981552,3.71020372)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11010",
         heading: 42
-    }, {
+    },{
         description: "Naar gang L201",
         pano: "pano11002",
         heading: 139
+    }],
+    neighbours: [{
+        up: 'pano11011',
+        down: 'pano11009'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1185,24 +1315,28 @@ var pano11012 = {
     location: {
         pano: 'pano11012',
         description: 'Gang L209',
-        latLng: new google.maps.LatLng(51.0597118, 3.71016428)
+        latLng: new google.maps.LatLng(51.0597118,3.71016428)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano11001",
         heading: 47
-    }, {
+    },{
         description: "Naar lokaal L226",
         pano: "pano11013",
         heading: 137
-    }, {
+    },{
         description: "Naar gang L210",
         pano: "pano11017",
         heading: 227
-    }, {
+    },{
         description: "Naar gang L209",
         pano: "pano11016",
         heading: 317
+    }],
+    neighbours: [{
+        up: 'pano11017',
+        down: 'pano11010'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1216,20 +1350,24 @@ var pano11013 = {
     location: {
         pano: 'pano11013',
         description: 'Lokaal L226',
-        latLng: new google.maps.LatLng(51.05968368, 3.71020509)
+        latLng: new google.maps.LatLng(51.05968368,3.71020509)
     },
     links: [{
         description: "Naar gang L209",
         pano: "pano11012",
         heading: 317
-    }, {
+    },{
         description: "Naar lokaal L226",
         pano: "pano11014",
         heading: 233
-    }, {
+    },{
         description: "Naar lokaal L226",
         pano: "pano11015",
         heading: 64
+    }],
+    neighbours: [{
+        up: 'pano11017',
+        down: 'pano11010'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1243,12 +1381,16 @@ var pano11014 = {
     location: {
         pano: 'pano11014',
         description: 'Lokaal L226',
-        latLng: new google.maps.LatLng(51.05964823, 3.71012787)
+        latLng: new google.maps.LatLng(51.05964823,3.71012787)
     },
     links: [{
         description: "Naar lokaal L226",
         pano: "pano11013",
         heading: 53
+    }],
+    neighbours: [{
+        up: 'pano11017',
+        down: 'pano11010'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1262,12 +1404,16 @@ var pano11015 = {
     location: {
         pano: 'pano11015',
         description: 'Lokaal L226',
-        latLng: new google.maps.LatLng(51.05971756, 3.71032011)
+        latLng: new google.maps.LatLng(51.05971756,3.71032011)
     },
     links: [{
         description: "Naar lokaal L226",
         pano: "pano11013",
         heading: 244
+    }],
+    neighbours: [{
+        up: 'pano11017',
+        down: 'pano11010'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1281,12 +1427,16 @@ var pano11016 = {
     location: {
         pano: 'pano11016',
         description: 'Gang L209',
-        latLng: new google.maps.LatLng(51.05975639, 3.71009959)
+        latLng: new google.maps.LatLng(51.05975639,3.71009959)
     },
     links: [{
         description: "Naar gang L209",
         pano: "pano11012",
         heading: 137
+    }],
+    neighbours: [{
+        up: 'pano11017',
+        down: 'pano11010'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1300,16 +1450,20 @@ var pano11017 = {
     location: {
         pano: 'pano11017',
         description: 'Gang L210',
-        latLng: new google.maps.LatLng(51.0596814, 3.71011151)
+        latLng: new google.maps.LatLng(51.0596814,3.71011151)
     },
     links: [{
         description: "Naar gang L209",
         pano: "pano11012",
         heading: 47
-    }, {
+    },{
         description: "Naar gang L210",
         pano: "pano11018",
         heading: 227
+    }],
+    neighbours: [{
+        up: 'pano11012',
+        down: 'pano11011'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1323,16 +1477,20 @@ var pano11018 = {
     location: {
         pano: 'pano11018',
         description: 'Gang L210',
-        latLng: new google.maps.LatLng(51.05964409, 3.71004677)
+        latLng: new google.maps.LatLng(51.05964409,3.71004677)
     },
     links: [{
         description: "Naar gang L210",
         pano: "pano11017",
         heading: 47
-    }, {
+    },{
         description: "Naar gang L210",
         pano: "pano11019",
         heading: 317
+    }],
+    neighbours: [{
+        up: 'pano11013',
+        down: 'pano11013'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1346,16 +1504,20 @@ var pano11019 = {
     location: {
         pano: 'pano11019',
         description: 'Gang L210',
-        latLng: new google.maps.LatLng(51.05968317, 3.70999008)
+        latLng: new google.maps.LatLng(51.05968317,3.70999008)
     },
     links: [{
         description: "Naar gang L210",
         pano: "pano11018",
         heading: 137
-    }, {
+    },{
         description: "Naar gang M201",
         pano: "pano11020",
         heading: 317
+    }],
+    neighbours: [{
+        up: 'pano11014',
+        down: 'pano11014'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1369,20 +1531,24 @@ var pano11020 = {
     location: {
         pano: 'pano11020',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.05971155, 3.70994889)
+        latLng: new google.maps.LatLng(51.05971155,3.70994889)
     },
     links: [{
         description: "Naar gang L210",
         pano: "pano11019",
         heading: 137
-    }, {
+    },{
         description: "Naar noodtrap",
         pano: "pano11021",
         heading: 241
-    }, {
+    },{
         description: "Naar gang M201",
         pano: "pano11022",
         heading: 317
+    }],
+    neighbours: [{
+        up: 'pano11015',
+        down: 'pano11015'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1396,12 +1562,16 @@ var pano11021 = {
     location: {
         pano: 'pano11021',
         description: 'Noodtrap',
-        latLng: new google.maps.LatLng(51.05969885, 3.70991201)
+        latLng: new google.maps.LatLng(51.05969885,3.70991201)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano11020",
         heading: 61
+    }],
+    neighbours: [{
+        up: 'pano11016',
+        down: 'pano11015'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1415,16 +1585,20 @@ var pano11022 = {
     location: {
         pano: 'pano11022',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.0597469, 3.70989761)
+        latLng: new google.maps.LatLng(51.0597469,3.70989761)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano11020",
         heading: 137
-    }, {
+    },{
         description: "Naar gang M201",
         pano: "pano12008",
         heading: 317
+    }],
+    neighbours: [{
+        up: 'pano12007',
+        down: 'pano11015'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1438,12 +1612,16 @@ var pano12000 = {
     location: {
         pano: 'pano12000',
         description: 'Traphal M202',
-        latLng: new google.maps.LatLng(51.05992304, 3.70988022)
+        latLng: new google.maps.LatLng(51.05992304,3.70988022)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12001",
         heading: 317
+    }],
+    neighbours: [{
+        up: 'pano12000',
+        down: 'pano12000'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1457,20 +1635,24 @@ var pano12001 = {
     location: {
         pano: 'pano12001',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.05994041, 3.70985502)
+        latLng: new google.maps.LatLng(51.05994041,3.70985502)
     },
     links: [{
         description: "Naar traphal M202",
         pano: "pano12000",
         heading: 137
-    }, {
+    },{
         description: "Naar gang M201",
         pano: "pano12002",
         heading: 227
-    }, {
+    },{
         description: "Naar gang M201",
         pano: "pano12010",
         heading: 47
+    }],
+    neighbours: [{
+        up: 'pano12001',
+        down: 'pano12001'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1484,20 +1666,24 @@ var pano12002 = {
     location: {
         pano: 'pano12002',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.05992682, 3.70983144)
+        latLng: new google.maps.LatLng(51.05992682,3.70983144)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12001",
         heading: 47
-    }, {
+    },{
         description: "Naar gang M201",
         pano: "pano12003",
         heading: 137
-    }, {
+    },{
         description: "Naar gang M201",
         pano: "pano12007",
         heading: 227
+    }],
+    neighbours: [{
+        up: 'pano12002',
+        down: 'pano12002'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1511,16 +1697,20 @@ var pano12003 = {
     location: {
         pano: 'pano12003',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.05987788, 3.70990313)
+        latLng: new google.maps.LatLng(51.05987788,3.70990313)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12002",
         heading: 317
-    }, {
+    },{
         description: "Naar gang M201",
         pano: "pano12004",
         heading: 227
+    }],
+    neighbours: [{
+        up: 'pano12009',
+        down: 'pano12003'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1534,20 +1724,24 @@ var pano12004 = {
     location: {
         pano: 'pano12004',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.0598165, 3.70979661)
+        latLng: new google.maps.LatLng(51.0598165,3.70979661)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12003",
         heading: 47
-    }, {
+    },{
         description: "Naar gang M201",
         pano: "pano12005",
         heading: 317
-    }, {
+    },{
         description: "Naar gang M201",
         pano: "pano12008",
         heading: 137
+    }],
+    neighbours: [{
+        up: 'pano12006',
+        down: 'pano12006'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1561,16 +1755,20 @@ var pano12005 = {
     location: {
         pano: 'pano12005',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.05984248, 3.70975892)
+        latLng: new google.maps.LatLng(51.05984248,3.70975892)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12004",
         heading: 137
-    }, {
+    },{
         description: "Naar gang M201",
         pano: "pano12006",
         heading: 317
+    }],
+    neighbours: [{
+        up: 'pano12005',
+        down: 'pano12005'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1584,16 +1782,20 @@ var pano12006 = {
     location: {
         pano: 'pano12006',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.05986565, 3.70972529)
+        latLng: new google.maps.LatLng(51.05986565,3.70972529)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12005",
         heading: 137
-    }, {
+    },{
         description: "Naar gang M201",
         pano: "pano12007",
         heading: 47
+    }],
+    neighbours: [{
+        up: 'pano12004',
+        down: 'pano12005'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1607,16 +1809,20 @@ var pano12007 = {
     location: {
         pano: 'pano12007',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.0598961, 3.70977813)
+        latLng: new google.maps.LatLng(51.0598961,3.70977813)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12006",
         heading: 227
-    }, {
+    },{
         description: "Naar gang M201",
         pano: "pano12002",
         heading: 47
+    }],
+    neighbours: [{
+        up: 'pano12003',
+        down: 'pano12004'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1630,20 +1836,24 @@ var pano12008 = {
     location: {
         pano: 'pano12008',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.05978866, 3.70983701)
+        latLng: new google.maps.LatLng(51.05978866,3.70983701)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12004",
         heading: 317
-    }, {
+    },{
         description: "Naar terras",
         pano: "pano12009",
         heading: 56
-    }, {
+    },{
         description: "Naar gang M201",
         pano: "pano11022",
         heading: 137
+    }],
+    neighbours: [{
+        up: 'pano12007',
+        down: 'pano12006'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1657,12 +1867,16 @@ var pano12009 = {
     location: {
         pano: 'pano12009',
         description: 'Terras',
-        latLng: new google.maps.LatLng(51.05981043, 3.70988893)
+        latLng: new google.maps.LatLng(51.05981043,3.70988893)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12008",
         heading: 236
+    }],
+    neighbours: [{
+        up: 'pano12007',
+        down: 'pano12006'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1676,16 +1890,20 @@ var pano12010 = {
     location: {
         pano: 'pano12010',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.05997044, 3.70990714)
+        latLng: new google.maps.LatLng(51.05997044,3.70990714)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12001",
         heading: 227
-    }, {
+    },{
         description: "Naar gang M201",
         pano: "pano12011",
         heading: 52
+    }],
+    neighbours: [{
+        up: 'pano12011',
+        down: 'pano12007'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1699,16 +1917,20 @@ var pano12011 = {
     location: {
         pano: 'pano12011',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.06002298, 3.71001433)
+        latLng: new google.maps.LatLng(51.06002298,3.71001433)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12010",
         heading: 232
-    }, {
+    },{
         description: "Naar gang M201",
         pano: "pano12012",
         heading: 48
+    }],
+    neighbours: [{
+        up: 'pano12012',
+        down: 'pano12008'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1722,16 +1944,20 @@ var pano12012 = {
     location: {
         pano: 'pano12012',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.06005334, 3.7100698)
+        latLng: new google.maps.LatLng(51.06005334,3.7100698)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12011",
         heading: 228
-    }, {
+    },{
         description: "Naar gang M201",
         pano: "pano12013",
         heading: 149
+    }],
+    neighbours: [{
+        up: 'pano12014',
+        down: 'pano12009'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1745,16 +1971,20 @@ var pano12013 = {
     location: {
         pano: 'pano12013',
         description: 'Gang M201',
-        latLng: new google.maps.LatLng(51.06000625, 3.71011466)
+        latLng: new google.maps.LatLng(51.06000625,3.71011466)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12012",
         heading: 329
-    }, {
+    },{
         description: "Naar gang L201",
         pano: "pano12014",
         heading: 137
+    }],
+    neighbours: [{
+        up: 'pano12015',
+        down: 'pano12010'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1768,20 +1998,24 @@ var pano12014 = {
     location: {
         pano: 'pano12014',
         description: 'Gang L201',
-        latLng: new google.maps.LatLng(51.05998441, 3.71014635)
+        latLng: new google.maps.LatLng(51.05998441,3.71014635)
     },
     links: [{
         description: "Naar gang M201",
         pano: "pano12013",
         heading: 317
-    }, {
+    },{
         description: "Naar gang L201",
         pano: "pano11008",
         heading: 137
-    }, {
+    },{
         description: "Naar noodtrap",
         pano: "pano12015",
         heading: 47
+    }],
+    neighbours: [{
+        up: 'pano12016',
+        down: 'pano12011'
     }],
     copyright: 'KU Leuven',
     tiles: {
@@ -1795,12 +2029,16 @@ var pano12015 = {
     location: {
         pano: 'pano12015',
         description: 'Noodtrap',
-        latLng: new google.maps.LatLng(51.06000225, 3.71017695)
+        latLng: new google.maps.LatLng(51.06000225,3.71017695)
     },
     links: [{
         description: "Naar gang L201",
         pano: "pano12014",
         heading: 227
+    }],
+    neighbours: [{
+        up: 'pano12017',
+        down: 'pano12011'
     }],
     copyright: 'KU Leuven',
     tiles: {

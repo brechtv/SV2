@@ -2,4 +2,4 @@
 
 Using Google Maps Javascript API & Street View API.
 
-See it in action [here](https://rawgit.com/brechtv/SV2/master/index.html).
+See it in action [here](https://rawgit.com/TijsD2/SV2/master/index.html).
