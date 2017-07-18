@@ -65,7 +65,7 @@ function loadSV(initpano) {
           input = $( "#room_search_input" ).val().toUpperCase();
 
           room = getRoom(input);
-          room == undefined && alert("Gelieve een geldige lokaalnaam in te voeren.");
+          room == undefined && alert("Lokaal niet gevonden! Gelieve een geldige lokaalnaam in te voeren.");
 
           room_latlng = new google.maps.LatLng(room.lat, room.lng);
           room_name = room.room;
