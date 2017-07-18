@@ -1228,11 +1228,6 @@ var pano05000 = {
         description: 'Gang E122',
         latLng: new google.maps.LatLng(51.0599659,3.70936301)
     },
-    links: [{
-        description: "FOUT",
-        pano: "pano02001",
-        heading: 313
-    }],
     neighbours: [{
         up: 'pano05000',
         down: 'pano05018'
