@@ -814,11 +814,6 @@ var pano05000 = {
         description: 'Traphal E222',
         latLng: new google.maps.LatLng(51.0599667,3.70936559)
     },
-    links: [{
-        description: "FOUT",
-        pano: "pano02013",
-        heading: 292
-    }],
     neighbours: [{
         up: 'pano05000',
         down: 'pano05000'
