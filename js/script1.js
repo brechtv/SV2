@@ -7,8 +7,6 @@ var room_markers = [];
 
 function initialize() {
 
-    var initialpano;
-
     neighbourpano_from_2 = localStorage.getItem("neighbourpano_from_2_to_1");
 
     if (neighbourpano_from_2 != null) {
@@ -18,12 +16,12 @@ function initialize() {
         }
     }
 
-function loadSV(pano) {
+function loadSV(initpano) {
 
     // initialize streetView
     streetView = new google.maps.StreetViewPanorama(
         document.getElementById('canvas'), {
-            pano: pano,
+            pano: initpano,
             visible: true,
             panoProvider: getCustomPanorama,
             motionTracking: false
@@ -67,8 +65,6 @@ function loadSV(pano) {
         }
 
     });
-
-
 
     // add KML layer for buildings
     var KMLLayer = new google.maps.KmlLayer({
