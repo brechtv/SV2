@@ -62,7 +62,7 @@ function loadSV(initpano) {
 
     $("#room_search_input").keypress(function(a) {
         if (a.keyCode == 13) {
-          input = $( "#room_search_input" ).val().toUpperCase();
+          input = $( "#room_search_input" ).val().toUpperCase().replace(/[^A-Z0-9]/gi, '');
 
           room = getRoom(input);
           room == undefined && alert("Lokaal niet gevonden! Gelieve een geldige lokaalnaam in te voeren.");
@@ -95,7 +95,7 @@ function loadSV(initpano) {
                   });
 
              var infowindow = new google.maps.InfoWindow({
-                  content: "<div><h5>Klaslokaal <strong>" + title  + "</strong></h5></div>"
+                  content: "<div><h5>Lokaal <strong>" + title  + "</strong></h5></div>"
                 });
 
             infowindow.open(map, marker);
