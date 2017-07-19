@@ -16,25 +16,42 @@
     margin: 0;
     padding: 0;
     }
-    .searchbox {
+    ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #fff;
+    }
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+       color:    #fff;
+       opacity:  1;
+    }
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+       color:    #fff;
+       opacity:  1;
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+       color:    #fff;
+    }
+    ::-ms-input-placeholder { /* Microsoft Edge */
+       color:    #fff;
+    }
+        .searchbox {
     position: relative;
     z-index: 1;
     color: #656565;
-    width: 90%;
+    width: 80%;
     }
     .searchfield {
     padding-left: 10px;
-    width: 60%;
+    width: 100%;
     height: 40px;
     border: 0px;
     margin-bottom: 2px;
     font-size: 14px;
-    color: #3F51B5;
-    background-color: #fff;
+    color: #ffee00;
+    background-color: #004070;
     }
     .searchfield:focus {
     outline: none;
-    background-color: #FFFFFF;
+    background-color: #004070;
     }
     .mdl-card {
     min-height: 0px;
@@ -49,6 +66,34 @@
     .demo-card-wide > .mdl-card__menu {
     color: #656565;
     top: 8px;
+    }
+    .addd {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: #004070;
+      position: fixed;
+      bottom: 30px;
+      right: 20px;
+      cursor: pointer;
+      box-shadow: 0px 2px 5px #666;
+      z-index: 100;
+    }
+    .rmmm {
+
+      background: #004070;
+      position: fixed;
+      right: 20px;
+      cursor: pointer;
+      z-index: 100;
+    }
+    #searchcontainer {
+      background: #004070;
+      position: fixed;
+      width: 100%;
+      height: 20px
+      box-shadow: 0px 2px 5px #666;
+      z-index: 100;
     }
     </style>
   </head>
@@ -82,28 +127,12 @@
       </div>
       <main class="mdl-layout__content">
         <div class="page-content">
-          <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone"></div>
-            <div class="mdl-cell mdl-cell--8-col">
-              <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title">
-                  <div class="searchbox">
-                    <input class="searchfield" placeholder="Zoek een lokaal..." type="text" id="room_search_input">
-                  </div>
-                </div>
-                <div class="mdl-card__menu">
-                  <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="close_search">
-                  <i class="material-icons">close</i>
-                  </button>
-                  <div class="mdl-tooltip" for="close_search">
-                    Zoekbalk verbergen
-                    </div>
-                </div>          </div>
-                <div class="mdl-cell mdl-cell--2-col"></div>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone"></div>
-          </div>
+        <div id="hide" style="display: none;">
+      <div id="searchcontainer">
+         <input class="searchfield" placeholder="Zoek een lokaal..." type="text" id="room_search_input">
+      </div>
+      <button class="mdl-button mdl-js-button rmmm" id="hide" onclick="hideSearch();"><i class="material-icons" style="color: white;">close</i></button>
+      </div>
           <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone"></div>
             <div class="mdl-cell mdl-cell--8-col">
@@ -116,10 +145,33 @@
           </div>
         </div>
       </main>
+
+      <button class="mdl-button mdl-js-button mdl-button--fab addd" id="showsearch" onclick="showSearch();"><i class="material-icons" style="color: white;">search</i></button>
       <script type="text/javascript">
-      $( "#close_search" ).click(function() {
-      $( this ).parent().parent().parent().parent().remove();
-      });
+
+      var showsearch = `<button class="mdl-button mdl-js-button mdl-button--fab addd" id="showsearch" onclick="showSearch();"><i class="material-icons" style="color: white;">search</i></button>
+        `
+      var searchbar = `
+      <div id="hide">
+      <div id="searchcontainer">
+         <input class="searchfield" placeholder="Zoek een lokaal..." type="text" id="room_search_input">
+      </div>
+      <button class="mdl-button mdl-js-button rmmm" id="hide" onclick="hideSearch();"><i class="material-icons" style="color: white;">close</i></button>
+      </div>
+      `
+
+        function showSearch() {
+          $( "#showsearch" ).hide();
+          $( "#searchcontainer" ).show();
+          $( "#hide" ).show();
+            }
+
+        function hideSearch() {
+          $( "#showsearch" ).show();
+          $( "#searchcontainer" ).hide();
+          $( "#hide" ).hide();
+        }
+
       </script>
       <script src="js/script1.js" type="text/javascript" async defer></script>
     </body>
