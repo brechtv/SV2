@@ -285,11 +285,12 @@ function createMarker(pos, map, description, title) {
         position: pos,
         map: map,
         title: description,
+        pano: title,
         icon: dot
     });
     marker.addListener("click", function() {
         map.setCenter(marker.getPosition());
-        streetView.setPano(title);
+        streetView.setPano(pano);
     });
 }
 
