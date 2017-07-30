@@ -290,7 +290,7 @@ function createMarker(pos, map, description, title) {
     });
     marker.addListener("click", function() {
         map.setCenter(marker.getPosition());
-        streetView.setPano(pano);
+        streetView.setPano(title);
     });
 }
 
