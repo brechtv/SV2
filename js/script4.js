@@ -197,8 +197,8 @@ function createMarker(pos, map, description, title) {
     var marker = new google.maps.Marker({
         position: pos,
         map: map,
-        title: description,
         pano: title,
+        title: description,
         icon: dot
     });
     marker.addListener("click", function() {
