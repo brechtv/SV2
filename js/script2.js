@@ -125,88 +125,88 @@ function loadSV(initpano) {
 
           }
 
-    createMarker(pano01000.location.latLng, map, pano01000.location.description);
-    createMarker(pano01001.location.latLng, map, pano01001.location.description);
-    createMarker(pano01002.location.latLng, map, pano01002.location.description);
-    createMarker(pano01003.location.latLng, map, pano01003.location.description);
-    createMarker(pano02000.location.latLng, map, pano02000.location.description);
-    createMarker(pano02001.location.latLng, map, pano02001.location.description);
-    createMarker(pano02002.location.latLng, map, pano02002.location.description);
-    createMarker(pano02003.location.latLng, map, pano02003.location.description);
-    createMarker(pano02004.location.latLng, map, pano02004.location.description);
-    createMarker(pano02005.location.latLng, map, pano02005.location.description);
-    createMarker(pano02006.location.latLng, map, pano02006.location.description);
-    createMarker(pano02007.location.latLng, map, pano02007.location.description);
-    createMarker(pano02008.location.latLng, map, pano02008.location.description);
-    createMarker(pano02009.location.latLng, map, pano02009.location.description);
-    createMarker(pano02010.location.latLng, map, pano02010.location.description);
-    createMarker(pano02011.location.latLng, map, pano02011.location.description);
-    createMarker(pano02012.location.latLng, map, pano02012.location.description);
-    createMarker(pano02013.location.latLng, map, pano02013.location.description);
-    createMarker(pano02014.location.latLng, map, pano02014.location.description);
-    createMarker(pano02015.location.latLng, map, pano02015.location.description);
-    createMarker(pano03000.location.latLng, map, pano03000.location.description);
-    createMarker(pano03001.location.latLng, map, pano03001.location.description);
-    createMarker(pano03002.location.latLng, map, pano03002.location.description);
-    createMarker(pano03003.location.latLng, map, pano03003.location.description);
-    createMarker(pano03004.location.latLng, map, pano03004.location.description);
-    createMarker(pano03005.location.latLng, map, pano03005.location.description);
-    createMarker(pano03006.location.latLng, map, pano03006.location.description);
-    createMarker(pano03007.location.latLng, map, pano03007.location.description);
-    createMarker(pano05000.location.latLng, map, pano05000.location.description);
-    createMarker(pano07000.location.latLng, map, pano07000.location.description);
-    createMarker(pano07001.location.latLng, map, pano07001.location.description);
-    createMarker(pano07002.location.latLng, map, pano07002.location.description);
-    createMarker(pano07003.location.latLng, map, pano07003.location.description);
-    createMarker(pano07004.location.latLng, map, pano07004.location.description);
-    createMarker(pano07005.location.latLng, map, pano07005.location.description);
-    createMarker(pano07006.location.latLng, map, pano07006.location.description);
-    createMarker(pano07007.location.latLng, map, pano07007.location.description);
-    createMarker(pano07008.location.latLng, map, pano07008.location.description);
-    createMarker(pano07009.location.latLng, map, pano07009.location.description);
-    createMarker(pano07010.location.latLng, map, pano07010.location.description);
-    createMarker(pano07011.location.latLng, map, pano07011.location.description);
-    createMarker(pano07012.location.latLng, map, pano07012.location.description);
-    createMarker(pano11000.location.latLng, map, pano11000.location.description);
-    createMarker(pano11001.location.latLng, map, pano11001.location.description);
-    createMarker(pano11002.location.latLng, map, pano11002.location.description);
-    createMarker(pano11003.location.latLng, map, pano11003.location.description);
-    createMarker(pano11004.location.latLng, map, pano11004.location.description);
-    createMarker(pano11005.location.latLng, map, pano11005.location.description);
-    createMarker(pano11006.location.latLng, map, pano11006.location.description);
-    createMarker(pano11007.location.latLng, map, pano11007.location.description);
-    createMarker(pano11008.location.latLng, map, pano11008.location.description);
-    createMarker(pano11009.location.latLng, map, pano11009.location.description);
-    createMarker(pano11010.location.latLng, map, pano11010.location.description);
-    createMarker(pano11011.location.latLng, map, pano11011.location.description);
-    createMarker(pano11012.location.latLng, map, pano11012.location.description);
-    createMarker(pano11013.location.latLng, map, pano11013.location.description);
-    createMarker(pano11014.location.latLng, map, pano11014.location.description);
-    createMarker(pano11015.location.latLng, map, pano11015.location.description);
-    createMarker(pano12000.location.latLng, map, pano12000.location.description);
-    createMarker(pano12001.location.latLng, map, pano12001.location.description);
-    createMarker(pano12002.location.latLng, map, pano12002.location.description);
-    createMarker(pano12003.location.latLng, map, pano12003.location.description);
-    createMarker(pano12004.location.latLng, map, pano12004.location.description);
-    createMarker(pano12005.location.latLng, map, pano12005.location.description);
-    createMarker(pano12006.location.latLng, map, pano12006.location.description);
-    createMarker(pano12007.location.latLng, map, pano12007.location.description);
-    createMarker(pano12008.location.latLng, map, pano12008.location.description);
-    createMarker(pano12009.location.latLng, map, pano12009.location.description);
-    createMarker(pano12010.location.latLng, map, pano12010.location.description);
-    createMarker(pano12011.location.latLng, map, pano12011.location.description);
-    createMarker(pano13000.location.latLng, map, pano13000.location.description);
-    createMarker(pano13001.location.latLng, map, pano13001.location.description);
-    createMarker(pano13002.location.latLng, map, pano13002.location.description);
-    createMarker(pano13003.location.latLng, map, pano13003.location.description);
-    createMarker(pano13004.location.latLng, map, pano13004.location.description);
-    createMarker(pano13005.location.latLng, map, pano13005.location.description);
-    createMarker(pano13006.location.latLng, map, pano13006.location.description);
-    createMarker(pano13007.location.latLng, map, pano13007.location.description);
-    createMarker(pano13008.location.latLng, map, pano13008.location.description);
-    createMarker(pano13009.location.latLng, map, pano13009.location.description);
-    createMarker(pano13010.location.latLng, map, pano13010.location.description);
-    createMarker(pano13011.location.latLng, map, pano13011.location.description);
+    createMarker(pano01000.location.latLng, map, pano01000.location.description, pano01000.location.pano);
+    createMarker(pano01001.location.latLng, map, pano01001.location.description, pano01001.location.pano);
+    createMarker(pano01002.location.latLng, map, pano01002.location.description, pano01002.location.pano);
+    createMarker(pano01003.location.latLng, map, pano01003.location.description, pano01003.location.pano);
+    createMarker(pano02000.location.latLng, map, pano02000.location.description, pano02000.location.pano);
+    createMarker(pano02001.location.latLng, map, pano02001.location.description, pano02001.location.pano);
+    createMarker(pano02002.location.latLng, map, pano02002.location.description, pano02002.location.pano);
+    createMarker(pano02003.location.latLng, map, pano02003.location.description, pano02003.location.pano);
+    createMarker(pano02004.location.latLng, map, pano02004.location.description, pano02004.location.pano);
+    createMarker(pano02005.location.latLng, map, pano02005.location.description, pano02005.location.pano);
+    createMarker(pano02006.location.latLng, map, pano02006.location.description, pano02006.location.pano);
+    createMarker(pano02007.location.latLng, map, pano02007.location.description, pano02007.location.pano);
+    createMarker(pano02008.location.latLng, map, pano02008.location.description, pano02008.location.pano);
+    createMarker(pano02009.location.latLng, map, pano02009.location.description, pano02009.location.pano);
+    createMarker(pano02010.location.latLng, map, pano02010.location.description, pano02010.location.pano);
+    createMarker(pano02011.location.latLng, map, pano02011.location.description, pano02011.location.pano);
+    createMarker(pano02012.location.latLng, map, pano02012.location.description, pano02012.location.pano);
+    createMarker(pano02013.location.latLng, map, pano02013.location.description, pano02013.location.pano);
+    createMarker(pano02014.location.latLng, map, pano02014.location.description, pano02014.location.pano);
+    createMarker(pano02015.location.latLng, map, pano02015.location.description, pano02015.location.pano);
+    createMarker(pano03000.location.latLng, map, pano03000.location.description, pano03000.location.pano);
+    createMarker(pano03001.location.latLng, map, pano03001.location.description, pano03001.location.pano);
+    createMarker(pano03002.location.latLng, map, pano03002.location.description, pano03002.location.pano);
+    createMarker(pano03003.location.latLng, map, pano03003.location.description, pano03003.location.pano);
+    createMarker(pano03004.location.latLng, map, pano03004.location.description, pano03004.location.pano);
+    createMarker(pano03005.location.latLng, map, pano03005.location.description, pano03005.location.pano);
+    createMarker(pano03006.location.latLng, map, pano03006.location.description, pano03006.location.pano);
+    createMarker(pano03007.location.latLng, map, pano03007.location.description, pano03007.location.pano);
+    createMarker(pano05000.location.latLng, map, pano05000.location.description, pano05000.location.pano);
+    createMarker(pano07000.location.latLng, map, pano07000.location.description, pano07000.location.pano);
+    createMarker(pano07001.location.latLng, map, pano07001.location.description, pano07001.location.pano);
+    createMarker(pano07002.location.latLng, map, pano07002.location.description, pano07002.location.pano);
+    createMarker(pano07003.location.latLng, map, pano07003.location.description, pano07003.location.pano);
+    createMarker(pano07004.location.latLng, map, pano07004.location.description, pano07004.location.pano);
+    createMarker(pano07005.location.latLng, map, pano07005.location.description, pano07005.location.pano);
+    createMarker(pano07006.location.latLng, map, pano07006.location.description, pano07006.location.pano);
+    createMarker(pano07007.location.latLng, map, pano07007.location.description, pano07007.location.pano);
+    createMarker(pano07008.location.latLng, map, pano07008.location.description, pano07008.location.pano);
+    createMarker(pano07009.location.latLng, map, pano07009.location.description, pano07009.location.pano);
+    createMarker(pano07010.location.latLng, map, pano07010.location.description, pano07010.location.pano);
+    createMarker(pano07011.location.latLng, map, pano07011.location.description, pano07011.location.pano);
+    createMarker(pano07012.location.latLng, map, pano07012.location.description, pano07012.location.pano);
+    createMarker(pano11000.location.latLng, map, pano11000.location.description, pano11000.location.pano);
+    createMarker(pano11001.location.latLng, map, pano11001.location.description, pano11001.location.pano);
+    createMarker(pano11002.location.latLng, map, pano11002.location.description, pano11002.location.pano);
+    createMarker(pano11003.location.latLng, map, pano11003.location.description, pano11003.location.pano);
+    createMarker(pano11004.location.latLng, map, pano11004.location.description, pano11004.location.pano);
+    createMarker(pano11005.location.latLng, map, pano11005.location.description, pano11005.location.pano);
+    createMarker(pano11006.location.latLng, map, pano11006.location.description, pano11006.location.pano);
+    createMarker(pano11007.location.latLng, map, pano11007.location.description, pano11007.location.pano);
+    createMarker(pano11008.location.latLng, map, pano11008.location.description, pano11008.location.pano);
+    createMarker(pano11009.location.latLng, map, pano11009.location.description, pano11009.location.pano);
+    createMarker(pano11010.location.latLng, map, pano11010.location.description, pano11010.location.pano);
+    createMarker(pano11011.location.latLng, map, pano11011.location.description, pano11011.location.pano);
+    createMarker(pano11012.location.latLng, map, pano11012.location.description, pano11012.location.pano);
+    createMarker(pano11013.location.latLng, map, pano11013.location.description, pano11013.location.pano);
+    createMarker(pano11014.location.latLng, map, pano11014.location.description, pano11014.location.pano);
+    createMarker(pano11015.location.latLng, map, pano11015.location.description, pano11015.location.pano);
+    createMarker(pano12000.location.latLng, map, pano12000.location.description, pano12000.location.pano);
+    createMarker(pano12001.location.latLng, map, pano12001.location.description, pano12001.location.pano);
+    createMarker(pano12002.location.latLng, map, pano12002.location.description, pano12002.location.pano);
+    createMarker(pano12003.location.latLng, map, pano12003.location.description, pano12003.location.pano);
+    createMarker(pano12004.location.latLng, map, pano12004.location.description, pano12004.location.pano);
+    createMarker(pano12005.location.latLng, map, pano12005.location.description, pano12005.location.pano);
+    createMarker(pano12006.location.latLng, map, pano12006.location.description, pano12006.location.pano);
+    createMarker(pano12007.location.latLng, map, pano12007.location.description, pano12007.location.pano);
+    createMarker(pano12008.location.latLng, map, pano12008.location.description, pano12008.location.pano);
+    createMarker(pano12009.location.latLng, map, pano12009.location.description, pano12009.location.pano);
+    createMarker(pano12010.location.latLng, map, pano12010.location.description, pano12010.location.pano);
+    createMarker(pano12011.location.latLng, map, pano12011.location.description, pano12011.location.pano);
+    createMarker(pano13000.location.latLng, map, pano13000.location.description, pano13000.location.pano);
+    createMarker(pano13001.location.latLng, map, pano13001.location.description, pano13001.location.pano);
+    createMarker(pano13002.location.latLng, map, pano13002.location.description, pano13002.location.pano);
+    createMarker(pano13003.location.latLng, map, pano13003.location.description, pano13003.location.pano);
+    createMarker(pano13004.location.latLng, map, pano13004.location.description, pano13004.location.pano);
+    createMarker(pano13005.location.latLng, map, pano13005.location.description, pano13005.location.pano);
+    createMarker(pano13006.location.latLng, map, pano13006.location.description, pano13006.location.pano);
+    createMarker(pano13007.location.latLng, map, pano13007.location.description, pano13007.location.pano);
+    createMarker(pano13008.location.latLng, map, pano13008.location.description, pano13008.location.pano);
+    createMarker(pano13009.location.latLng, map, pano13009.location.description, pano13009.location.pano);
+    createMarker(pano13010.location.latLng, map, pano13010.location.description, pano13010.location.pano);
+    createMarker(pano13011.location.latLng, map, pano13011.location.description, pano13011.location.pano);
     var KMLLayer = new google.maps.KmlLayer({
         url: 'https://storage.googleapis.com/brechtv/SV%202/files/Final/verdieping1.kml',
         map: map,
@@ -214,7 +214,7 @@ function loadSV(initpano) {
     });
 }
 
-function createMarker(pos, map, title) {
+function createMarker(pos, map, description, title) {
 
     var dot = {
         path: 'M-1,0a1,1 0 1,0 2,0a1,1 0 1,0 -2,0',
@@ -229,7 +229,8 @@ function createMarker(pos, map, title) {
     var marker = new google.maps.Marker({
         position: pos,
         map: map,
-        title: title,
+        title: description,
+        pano: title,
         icon: dot
     });
     marker.addListener("click", function() {
