@@ -1145,7 +1145,7 @@ var pano00016 = {
     },{
         description: "Naar gang F001",
         pano: "pano06000",
-        heading: 15
+        heading: 205
     }],
     copyright: 'KU Leuven',
     tiles: {
